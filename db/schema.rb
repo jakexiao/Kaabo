@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_180949) do
+ActiveRecord::Schema.define(version: 2020_09_01_110313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2020_08_31_180949) do
     t.index ["theme_id"], name: "index_comments_on_theme_id"
   end
 
+  create_table "commentupvotes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_commentupvotes_on_comment_id"
+    t.index ["user_id"], name: "index_commentupvotes_on_user_id"
+  end
+
   create_table "themes", force: :cascade do |t|
     t.string "title"
     t.date "date"
@@ -45,6 +54,15 @@ ActiveRecord::Schema.define(version: 2020_08_31_180949) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["topic_id"], name: "index_themes_on_topic_id"
     t.index ["user_id"], name: "index_themes_on_user_id"
+  end
+
+  create_table "themeupvotes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "theme_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["theme_id"], name: "index_themeupvotes_on_theme_id"
+    t.index ["user_id"], name: "index_themeupvotes_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -68,6 +86,10 @@ ActiveRecord::Schema.define(version: 2020_08_31_180949) do
 
   add_foreign_key "articles", "topics"
   add_foreign_key "comments", "themes"
+  add_foreign_key "commentupvotes", "comments"
+  add_foreign_key "commentupvotes", "users"
   add_foreign_key "themes", "topics"
   add_foreign_key "themes", "users"
+  add_foreign_key "themeupvotes", "themes"
+  add_foreign_key "themeupvotes", "users"
 end
