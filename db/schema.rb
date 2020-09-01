@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_165348) do
+ActiveRecord::Schema.define(version: 2020_08_31_180949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2020_08_31_165348) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "topic_id"
     t.index ["topic_id"], name: "index_articles_on_topic_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.date "date"
+    t.text "content"
+    t.integer "upvote"
+    t.bigint "theme_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["theme_id"], name: "index_comments_on_theme_id"
   end
 
   create_table "themes", force: :cascade do |t|
@@ -57,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_165348) do
   end
 
   add_foreign_key "articles", "topics"
+  add_foreign_key "comments", "themes"
   add_foreign_key "themes", "topics"
   add_foreign_key "themes", "users"
 end
