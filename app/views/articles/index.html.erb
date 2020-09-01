@@ -1,4 +1,5 @@
-<li><% @articles.each do |article| %></li>
+<% @articles.each do |article| %>
+  <%= image_tag article.image_url %>
 <h1><%= article.title %></h1>
 <p> <%= article.date %></p>
 
