@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :topics, only: [:index, :show] do 
+  resources :topics, only: [:index, :show] do
     resources :themes
   end
-  
+
   resources :themes do
     resources :comments
   end
