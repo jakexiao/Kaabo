@@ -1,6 +1,6 @@
-<h1><%= @article.title %></h1>
-<p> <%= @article.content %></p>
-<p> <%= @article.date %></p>
+<% @articles.each do |article| %>
+<h1><%= article.title %></h1>
+<p> <%= article.content %></p>
+<p> <%= article.date %></p>
+<%end%>
 
-
-<%= link_to "Go to Forum", topics_path(topic)%>

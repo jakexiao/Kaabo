@@ -1,11 +1,14 @@
 <h1>Topics</h1>
-<ul>
-  <li><% @topics.each do |topic| %></li>
-  <p><%= link_to "Info", topic_articles_path(topic) %></p>
-  <p><%= link_to "Forum", topic_themes_path(topic) %></p>
-  <% end %>
-</ul>
-
-
-
-<%= render %>
+<div class="container">
+  <div class="cards">
+    <% @topics.each do |topic| %>
+    <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <div class="card-footer">
+        <h2><%= topic.category %></h2>
+        <p><%= link_to "Info", topic_articles_path(topic) %></p>
+        <p><%= link_to "Forum", topic_themes_path(topic) %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
