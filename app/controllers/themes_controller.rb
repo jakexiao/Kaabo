@@ -16,12 +16,12 @@ class ThemesController < ApplicationController
 
   def index
     @topic = Topic.find(params[:topic_id])
-    @themes = Theme.all
+    @themes = @topic.themes
   end
 
   def show
     @theme = Theme.find(params[:id])
-    @comments = Comment.all
+    @comments = @theme.comments
   end
 
   def destroy
