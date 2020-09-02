@@ -1,5 +1,6 @@
 <h1> <%= @theme.title %> </h1> 
 <p> Go back to <%= link_to @theme.topic.category, topic_themes_path %> </p> 
+<p> <%= link_to "Leave a comment", new_theme_comment_path(@theme) %> </p> 
 
 <% @comments.each do |comment| %>
     <p><%= comment.content %></p>

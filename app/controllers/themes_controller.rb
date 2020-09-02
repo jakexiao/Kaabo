@@ -1,37 +1,48 @@
 class ThemesController < ApplicationController
   def new
       @topic = Topic.find(params[:topic_id])
-      @user = User.find(params[:user_id])
+      # @user = User.find(params[:user_id])
       @theme = Theme.new
   end
 
   def create
     @theme = Theme.new(theme_params)
     @topic = Topic.find(params[:topic_id])
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
     @theme.topic = @topic
-    @theme.user = @user
-    @theme.save
+    @theme.user_id = current_user.id
+    if @theme.save
+      redirect_to topic_themes_path(@topic)
+    else 
+      render :new
+    end 
   end
 
   def index
     @topic = Topic.find(params[:topic_id])
-    @themes = @topic.themes
+    @themes = @topic.themes.sort
   end
 
   def show
     @theme = Theme.find(params[:id])
-    @comments = @theme.comments
+    @comments = @theme.comments.sort
   end
 
   def destroy
     @theme = Theme.find(params[:id])
     @theme.destroy
+    redirect_to dashboard_path
+  end
+
+  def edit
+    @theme = Theme.find(params[:id])
   end
 
   def update
     @theme = Theme.find(params[:id])
     @theme.update(theme_params)
+
+    redirect_to dashboard_path
   end
 
   private
