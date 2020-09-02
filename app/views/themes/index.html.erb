@@ -1,0 +1,19 @@
+<h1> <%= @topic.category %> </h1> 
+<p> <%= link_to "More topics", topics_path %> </p> 
+
+<h3> Threads in <%= @topic.category %> </h3>
+
+<% @themes.each do |theme| %>
+    <p><%= theme.title %></p>
+    <p>by <%= theme.user.username %></p>
+    <p><%= theme.date %></p>
+    <p> <%= link_to "Comment on this", topic_theme_path(@topic,theme) %> </p>
+    <% if theme.themeupvotes.present? %>
+      <%= link_to "dislike", themeupvotes_path(theme: theme), method: :delete %> 
+    <% else %>
+      <%= link_to "like", themeupvotes_path(theme: theme), method: :post %> 
+    <% end %>
+    <p><%= theme.themeupvotes.count %></p>
+
+<% end %>
+
