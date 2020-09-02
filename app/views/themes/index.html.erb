@@ -8,10 +8,10 @@
     <p>by <%= theme.user.username %></p>
     <p><%= theme.date %></p>
     <p> <%= link_to "Comment on this", topic_theme_path(@topic,theme) %> </p>
-    <% if theme.themeupvotes.present? %>
-      <%= link_to "dislike", themeupvotes_path(theme: theme), method: :delete %> 
+    <% if theme.get_themeupvote_of_user(current_user) %>
+      <%= link_to "dislike", themeupvote_path(theme.get_themeupvote_of_user(current_user)), method: :delete %> 
     <% else %>
-      <%= link_to "like", themeupvotes_path(theme: theme), method: :post %> 
+      <%= link_to "like", theme_themeupvotes_path(theme), method: :post %> 
     <% end %>
     <p><%= theme.themeupvotes.count %></p>
 
