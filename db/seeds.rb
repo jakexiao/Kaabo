@@ -23,62 +23,75 @@ user1 = User.create!(
 
 puts "Creating topic..."
 
-Topic.create!(category: "Health") 
-Topic.create!(category: "Jobs") 
-Topic.create!(category: "Housing") 
-Topic.create!(category: "Finance") 
-Topic.create!(category: "Food") 
-Topic.create!(category: "Education") 
-Topic.create!(category: "Visa") 
-Topic.create!(category: "Legal services") 
+# Topic.create!(category: "Health") 
+# Topic.create!(category: "Jobs") 
+# Topic.create!(category: "Housing") 
+# Topic.create!(category: "Finance") 
+# Topic.create!(category: "Food") 
+# Topic.create!(category: "Education") 
+# Topic.create!(category: "Visa") 
+# Topic.create!(category: "Legal services") 
 
 puts "Creating 10 articles..."
 
-10.times do
-    article = Article.new(
-      title: Faker::Book.title,
-      content: Faker::Lorem.paragraph(sentence_count: 10),
-      date: Faker::Date.between(from: 10.days.ago, to: Date.today),
-      image_url: "https://source.unsplash.com/500x400/?#{Topic.all.sample.category}",
-      topic_id: Topic.all.sample.id)
-    article.save
-end
+
 
 puts "Done with articles!"
 
 puts "Creating 10 themes(threads)..."
+topic_categories = ["Health", "Jobs", "Housing", "Finance", "Food", "Education", "Visa", "Legal services"]
+count = 0 
+8.times do 
+    topic = Topic.new(
+        category: topic_categories[count]
+    )
+    topic.save
 
-10.times do
-    theme = Theme.new(
-      title: Faker::Lorem.question,
-      date: Faker::Date.between(from: 10.days.ago, to: Date.today),
-      topic_id: Topic.all.sample.id,
-      user_id: user1.id)
-    theme.save
-
-    puts "Creating 10 comments for #{theme.title}..."
+    count += 1
 
     10.times do
-        comment = Comment.new(
-          content: Faker::Quote.matz,
+        article = Article.new(
+          title: Faker::Book.title,
+          content: Faker::Lorem.paragraph(sentence_count: 10),
           date: Faker::Date.between(from: 10.days.ago, to: Date.today),
-          theme_id: theme.id)
-        comment.save
+          image_url: "https://source.unsplash.com/500x400/?#{topic.category}",
+          topic_id: topic.id)
+        article.save
+    end
+
+    10.times do
+        theme = Theme.new(
+        title: Faker::Lorem.question,
+        date: Faker::Date.between(from: 10.days.ago, to: Date.today),
+        topic_id: topic.id,
+        user_id: user1.id)
+        theme.save
+
+        puts "Creating 10 comments for #{theme.title}..."
+
+        10.times do
+            comment = Comment.new(
+            content: Faker::Quote.matz,
+            date: Faker::Date.between(from: 10.days.ago, to: Date.today),
+            theme_id: theme.id)
+            comment.save
+
+            5.times do
+                commentupvote = Commentupvote.new(
+                user_id: user1.id,
+                comment_id: comment.id)
+                commentupvote.save
+            end
+        end
 
         5.times do
-            commentupvote = Commentupvote.new(
-              user_id: user1.id,
-              comment_id: comment.id)
-            commentupvote.save
+            themeupvote = Themeupvote.new(
+            user_id: user1.id,
+            theme_id: theme.id)
+            themeupvote.save
         end
     end
 
-    5.times do
-        themeupvote = Themeupvote.new(
-          user_id: user1.id,
-          theme_id: theme.id)
-        themeupvote.save
-    end
 end
 
 puts "Done with themes(threads)!"
