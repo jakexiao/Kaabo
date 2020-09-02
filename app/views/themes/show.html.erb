@@ -1,0 +1,16 @@
+<h1> <%= @theme.title %> </h1> 
+<p> Go back to <%= link_to @theme.topic.category, topic_themes_path %> </p> 
+
+<% @comments.each do |comment| %>
+    <p><%= comment.content %></p>
+    <p>by <%= comment.theme.user.username %></p>
+    <p><%= comment.date %></p>
+    
+    <% if comment.get_commentupvote_of_user(current_user) %>
+      <%= link_to "dislike", commentupvote_path(comment.get_commentupvote_of_user(current_user)), method: :delete %> 
+    <% else %>
+      <%= link_to "like", comment_commentupvotes_path(comment), method: :post %> 
+    <% end %>
+    
+    <p><%= comment.commentupvotes.count %></p>
+<% end %>

@@ -1,12 +1,17 @@
-<h1>Topics</h1>
-<ul>
-  <li><% @topics.each do |topic| %></li>
-  <p><%= topic.category %></p>
-  <p><%= link_to "Info", topic_articles_path(topic) %></p>
-  <p><%= link_to "Forum", topic_themes_path(topic) %></p>
-  <% end %>
-</ul>
-
-
-
+<div class="full-page-container">
+  <div class="container">
+    <h1>Topics</h1>
+    <div class="cards">
+      <% @topics.each do |topic| %>
+        <div class="card">
+          <h2><%= topic.category %></h2>
+          <img src="./folder/icon#{topic.category}">
+          <div class="links">
+            <p><%= link_to "Info", topic_articles_path(topic) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
