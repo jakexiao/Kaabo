@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   def index
+    @topic = Topic.find(params[:topic_id])
     @articles = Article.all
   end
 
