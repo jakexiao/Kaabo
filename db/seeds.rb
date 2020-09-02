@@ -39,6 +39,7 @@ puts "Creating 10 articles..."
       title: Faker::Book.title,
       content: Faker::Lorem.paragraph(sentence_count: 10),
       date: Faker::Date.between(from: 10.days.ago, to: Date.today),
+      image_url: "https://source.unsplash.com/500x400/?#{Topic.all.sample.category}",
       topic_id: Topic.all.sample.id)
     article.save
 end
