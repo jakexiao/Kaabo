@@ -5,9 +5,10 @@
       <% @topics.each do |topic| %>
         <div class="card">
           <h2><%= topic.category %></h2>
-          <img src="./folder/icon#{topic.category}">
+          <% topicname = topic.category %>
+          <%= image_tag "icons/icon#{topicname}.svg"%>
           <div class="links">
-            <p><%= link_to "Info", topic_articles_path(topic) %></p>
+            <p><%= link_to "#{topic.category}", topic_themes_path(topic) %></p>
           </div>
         </div>
       <% end %>
