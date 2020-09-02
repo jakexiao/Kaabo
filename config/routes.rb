@@ -20,7 +20,10 @@ Rails.application.routes.draw do
 
   resources :themeupvotes, only: [:destroy] 
   resources :commentupvotes, only: [:create, :destroy] 
-  
+
+  resources :users
+
+  get "/dashboard", to: "comments#dashboard"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

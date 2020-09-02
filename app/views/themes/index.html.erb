@@ -1,13 +1,18 @@
 <h1> <%= @topic.category %> </h1> 
 <p> <%= link_to "More topics", topics_path %> </p> 
+<p> <%= link_to "Create a new thread", new_topic_theme_path %> </p> 
 
 <h3> Threads in <%= @topic.category %> </h3>
 
 <% @themes.each do |theme| %>
     <p><%= theme.title %></p>
+    <% if theme.user.username.present?%>
     <p>by <%= theme.user.username %></p>
+    <% else %>
+    <p>by <%= theme.user.email %></p>
+    <% end %>
     <p><%= theme.date %></p>
-    <p> <%= link_to "Comment on this", topic_theme_path(@topic,theme) %> </p>
+    <p> <%= link_to "See comments", topic_theme_path(@topic,theme) %> </p>
     <% if theme.get_themeupvote_of_user(current_user) %>
       <%= link_to "dislike", themeupvote_path(theme.get_themeupvote_of_user(current_user)), method: :delete %> 
     <% else %>

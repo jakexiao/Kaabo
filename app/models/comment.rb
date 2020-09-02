@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :theme
-  has_many :commentupvotes
+  has_many :commentupvotes, dependent: :destroy
 
   has_many_attached :files
 
