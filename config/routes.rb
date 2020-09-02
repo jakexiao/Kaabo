@@ -6,14 +6,19 @@ Rails.application.routes.draw do
   end
 
   resources :themes do
-    resources :comments
+    resources :comments, except: [:destroy]
+    resources :themeupvotes, only: [:create]
+  end
+
+  resources :comments, only: [:destroy] do 
+    resources :commentupvotes, only: [:create]
   end
 
   resources :topics, only: [:index, :show] do
     resources :articles, only: [:index, :show]
   end
 
-  resources :themeupvotes, only: [:create, :destroy] 
+  resources :themeupvotes, only: [:destroy] 
   resources :commentupvotes, only: [:create, :destroy] 
   
 
