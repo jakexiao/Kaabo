@@ -1,0 +1,40 @@
+
+.footer {
+    background: #52575D;
+    color: #FDDB3A;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+    padding: 0px 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+  }
+  .footer-links {
+    display: flex;
+    align-items: center;
+    color: #FDDB3A;
+    margin-bottom:20px;
+  }
+  .footer-links a {
+    color: #FDDB3A;
+    opacity: 0,5;
+
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0px 10px;
+
+  }
+
+  .footer .fa-heart {
+    color: #FDDB3A;
+  }
+
+  .footer-copyright {
+    display: flex;
+    align-items: center;
+    i {margin: 5px;
+    }
+  }
