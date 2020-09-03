@@ -23,6 +23,7 @@
 <% end %>
 
 <h2>My comments</h2>
-
-
-
+<% @my_comments.each do |comment|%>
+    <p><%= comment.content %></p>
+    <p> created on <%= comment.date %></p>
+<% end %>
