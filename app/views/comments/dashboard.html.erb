@@ -9,7 +9,16 @@
 <% end %>
 
 
-<h2>My follows<h2>
+<h2>My Bookmarks</h2>
+<% @my_bookmarks.each do |bookmark|%>
+    <p><%= bookmark.theme.title %></p>
+    <p> created on <%= bookmark.theme.date %></p>
+
+    <% if bookmark.theme.get_bookmark_of_user(current_user) %>
+    <%= link_to "unbookmark", theme_bookmark_path(bookmark.theme, bookmark.theme.get_bookmark_of_user(current_user)), method: :delete, :query => "dashboard" %>  
+  <% end %>
+
+  <% end %>
 
 <h2>My threads</h2>
 <% @my_themes.each do |theme|%>

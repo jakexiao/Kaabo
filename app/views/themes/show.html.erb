@@ -2,6 +2,12 @@
 <p> Go back to <%= link_to @theme.topic.category, topic_themes_path %> </p> 
 <p> <%= link_to "Leave a comment", new_theme_comment_path(@theme) %> </p> 
 
+<div class="form-inline d-flex" style="width:100%">
+          <%= form_tag topic_theme_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search', class: 'search-btn'%>
+          <% end %>
+        </div>
+
 <% @comments.each do |comment| %>
     <p><%= comment.content %></p>
     <p>by <%= comment.theme.user.username %></p>

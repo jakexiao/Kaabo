@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :themes do
     resources :comments, except: [:destroy]
     resources :themeupvotes, only: [:create]
+    resources :bookmarks, only: [:index, :create, :destroy]
   end
 
   resources :comments, only: [:destroy] do 
