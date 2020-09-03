@@ -24,6 +24,7 @@
 <% @my_themes.each do |theme|%>
     <p><%= theme.title %></p>
     <p> created on <%= theme.date %></p>
+    <%= link_to "Go to threads", topic_themes_path(theme.topic, theme) %>
     <%= link_to "Edit", edit_topic_theme_path(theme.topic, theme) %>
     <%= link_to "Delete",
         topic_theme_path(theme.topic, theme),
@@ -35,4 +36,10 @@
 <% @my_comments.each do |comment|%>
     <p><%= comment.content %></p>
     <p> created on <%= comment.date %></p>
+    <%= link_to "Go to comments", topic_theme_path(comment.theme.topic, comment.theme) %>
+    <%= link_to "Edit", edit_theme_comment_path(comment.theme.topic, comment.theme) %>
+     <%= link_to "Delete",
+        topic_theme_path(comment.theme.topic, comment.theme),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
 <% end %>

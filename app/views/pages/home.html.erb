@@ -16,7 +16,7 @@
 
               </div>
             </div>
-          <div class="d-inline-flex p-2"><h4 class="title"><strong>Useful Information</strong></h4></div>
+          <div class="d-inline-flex p-2"><h4 class="title" id="info"><strong>Useful Information</strong></h4></div>
       <div class="cards">
         <% @topics.each do |topic| %>
 
@@ -26,7 +26,7 @@
           <% topicname = topic.category %>
           <%= image_tag "icons/icon#{topicname}.svg"%>
           <div class="links">
-            <p><%= link_to "#{topic.category}", topic_themes_path(topic) %></p>
+            <p><%= link_to "#{topic.category}", topic_articles_path(topic) %></p>
           </div>
         </div>
       <% end %>
