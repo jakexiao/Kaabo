@@ -12,53 +12,19 @@
                 <p>Visit the Forum or join the Community. Search and share information, find support and make friends!</p>
           </div>
           <h3 class="title"><strong>Useful Information</strong></h3>
-        </div>
-        <div class="container">
-          <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Education</h5>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Housing</h5>
-            </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Health</h5>
-              </div>
+          <div class="cards">
+          <% @topics.each do |topic| %>
+          <div class="card">
+            <h2><%= topic.category %></h2>
+            <% topicname = topic.category %>
+            <%= image_tag "icons/icon#{topicname}.svg"%>
+            <div class="links">
+              <p><%= link_to "#{topic.category}", topic_themes_path(topic) %></p>
             </div>
           </div>
-
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Documents</h5>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Jobs</h5>
-              </div>
-            </div>
-
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Inclusion</h5>
-              </div>
-
+            <% end %>
+          </div>
+        </div>
     </div>
   </div>
 </div>
-
-
-
-
-
