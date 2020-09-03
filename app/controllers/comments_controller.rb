@@ -36,6 +36,7 @@ class CommentsController < ApplicationController
   def dashboard
     @my_themes = current_user.themes
     @my_comments = current_user.comments
+    @my_bookmarks = Bookmark.where(user_id: current_user.id)
     @current_user = current_user
   end
 
