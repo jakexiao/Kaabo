@@ -1,30 +1,46 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
-      <div class="img-fluid" style="background-image: url('https://images.unsplash.com/photo-1556484687-30636164638b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80'); height: 500px; background-size: cover;"></div>
-        <div >
-          <h3 class="title"><strong>What's Kaabo?</strong></h3>
+<div>
+  <div class="banner" style="background-image: url('https://images.unsplash.com/photo-1556484687-30636164638b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80'); height: 500px; background-size: cover;"></div>
+      <div class="d-inline-flex p-2"><h4 class="title"><strong>What's Kaabo?</strong></h4></div>
             <p>Kaabo means “Welcome” in Youruba.  Kaabo app, it is a place to improve imigrants access to information in Portugal...</p>
-          <h3 class="title"><strong>How does it work?</strong></h3>
-                <p>Kaabo provides you clear and concrete official and community information regarding basic rights.  Enter a secton below and start your journey.</p>
-          <div id="forum-card">
-            <h3><strong>Kaabo Forum</strong></h3>
-                <p>Visit the Forum or join the Community. Search and share information, find support and make friends!</p>
-          </div>
-          <h3 class="title"><strong>Useful Information</strong></h3>
-          <div class="cards">
-          <% @topics.each do |topic| %>
-          <div class="card">
-            <h2><%= topic.category %></h2>
-            <% topicname = topic.category %>
-            <%= image_tag "icons/icon#{topicname}.svg"%>
-            <div class="links">
-              <p><%= link_to "#{topic.category}", topic_themes_path(topic) %></p>
+          <div class="d-inline-flex p-2"><h4 class="title"><strong>How does it work?</strong></h4></div>
+                <p>Kaabo provides you clear and concrete official and community information regarding basic rights. Enter a secton below and start your journey.</p>
+          <div class="container">
+            <div class="d-flex flex-column">
+              <div id="target"><i class="fas fa-comments fa-5x"></i></div>
+
+              </div>
+              <div class="p-2"><h4 class="forum"><strong>Kaabo Forum</strong></h4>
+                  <p>Visit the Forum or join the Community. Search and share information, find support and make friends!</p>
+                  <%= link_to "Enter", topics_path, class: "btn btn-warning btn-danger-text" %>
+
+
+              </div>
             </div>
-          </div>
-            <% end %>
+          <div class="d-inline-flex p-2"><h4 class="title"><strong>Useful Information</strong></h4></div>
+      <div class="cards">
+        <% @topics.each do |topic| %>
+
+        <%= link_to topic_themes_path(topic) do %>
+      <div class="card">
+
+          <% topicname = topic.category %>
+          <%= image_tag "icons/icon#{topicname}.svg"%>
+          <div class="links">
+            <p><%= link_to "#{topic.category}", topic_themes_path(topic) %></p>
           </div>
         </div>
-    </div>
-  </div>
+      <% end %>
+<% end %>
+      </div>
+      <div class="d-inline-flex p-2"><h4 class="title"><strong>Highlights</strong></h4></div>
+      <h5>Education</h5>
+      <h4>SCOLARSHIPS 20/21</h4>
+      <p>Scholar year it is about to start. Imigrants can also apply to scholarship and access other social support services.</p>
+      <h5>Documentation</h5>
+      <h4>RESIDENCE</h4>
+      <P>Due to Covid-19 social restrictions, applying to residence authorization became less beaurocratic. Check all the new regulations.</P>
 </div>
+
+
+
+

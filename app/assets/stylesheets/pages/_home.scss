@@ -1,31 +1,81 @@
 // Specific CSS for your home-page
-#home-container {
-background-color: #41444B;
-
-}
-
-#content-wrap {
-
-}
 
 .body-color {
   background-color: white;
+
 }
 
 .banner {
 
 }
 
-
-
 .title {
-  padding: 8px 16px;
-  margin: 60px 20px 60px 20px;
   background-color: #FDDB3A;
-
+  padding: 10px;
+  margin-left: 50px;
+  margin-bottom: 25px;
+  margin-top: 20px;
+  border-radius: 3px;
 }
 
-#forum-card{
+p {
+  text-align: left;
+  margin-top: auto;
+  margin-bottom: 1rem;
+  margin-left: 56px;
+  margin-right: 54px;
+}
+
+.container {
   background-color: #F6F4E6;
   width:100%;
+  text-align: center;
 }
+
+.cards {
+  padding: 10px;
+  margin-left: 50px;
+  margin-bottom: 25px;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+
+.btn btn-warning {
+  background-color: #FDDB3A;
+  border-radius: 3px;
+}
+
+.btn-danger-text {
+  color: #52575D;
+}
+
+#target {
+  background: #FDDB3A;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+  margin-top: 18px;
+}
+
+.fa-comments:before {
+  content: "\f086";
+  color: white;
+  position: relative;
+  top: 20px;
+}
+
+h5 {
+  color: #FDDB3A;
+  margin-left: 58px;
+}
+
+h4 {
+  margin-left: 55px;
+}
+
+
+
+
+
+
