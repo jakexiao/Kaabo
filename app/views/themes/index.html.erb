@@ -2,23 +2,74 @@
 <p> <%= link_to "More topics", topics_path %> </p> 
 <p> <%= link_to "Create a new thread", new_topic_theme_path %> </p> 
 
+<div class="form-inline d-flex" style="width:100%">
+    <%= form_tag topic_themes_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search', class: 'search-btn'%>
+    <% end %>
+</div>
+
+<p> <%= link_to "Show all threads", topic_themes_path %> </p> 
+
+<div class="filters">
+    <button type="button" id="type-filter" class="btn btn-outline-secondary">What's hot</button>
+</div>
+
+<div class="card text-center" id="type-card" style="display: none">
+
+    <br>
+
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1" id="defaultText1">Lisbon</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+        <label class="form-check-label" for="defaultCheck2" id="defaultText2">COVID-19</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+        <label class="form-check-label" for="defaultCheck3" id="defaultText3">SEF</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+        <label class="form-check-label" for="defaultCheck4" id="defaultText4">Ilegal</label>
+    </div>
+
+    <br>
+
+    <div>
+    <button type="button" id="save-type" class="btn btn-dark">Save</button>
+    </div>
+
+    <br>
+
+</div>
+
 <h3> Threads in <%= @topic.category %> </h3>
 
 <% @themes.each do |theme| %>
-    <p><%= theme.title %></p>
-    <% if theme.user.username.present?%>
-    <p>by <%= theme.user.username %></p>
-    <% else %>
-    <p>by <%= theme.user.email %></p>
-    <% end %>
-    <p><%= theme.date %></p>
-    <p> <%= link_to "See comments", topic_theme_path(@topic,theme) %> </p>
-    <% if theme.get_themeupvote_of_user(current_user) %>
-      <%= link_to "dislike", themeupvote_path(theme.get_themeupvote_of_user(current_user)), method: :delete %> 
-    <% else %>
-      <%= link_to "like", theme_themeupvotes_path(theme), method: :post %> 
-    <% end %>
-    <p><%= theme.themeupvotes.count %></p>
-
+    <div data-type='<%=theme.title%>' class="theme">
+        <p><%= theme.title %></p>
+        <% if theme.user.username.present?%>
+        <p>by <%= theme.user.username %></p>
+        <% else %>
+        <p>by <%= theme.user.email %></p>
+        <% end %>
+        <p><%= theme.date %></p>
+        <p> <%= link_to "See comments", topic_theme_path(@topic,theme) %> </p>
+        <% if theme.get_themeupvote_of_user(current_user) %>
+        <%= link_to "dislike", themeupvote_path(theme.get_themeupvote_of_user(current_user)), method: :delete %> 
+        <% else %>
+        <%= link_to "like", theme_themeupvotes_path(theme), method: :post %> 
+        <% end %>
+        <p><%= theme.themeupvotes.count %></p>
+        <% if theme.get_bookmark_of_user(current_user) %>
+        <%= link_to "unbookmark", theme_bookmark_path(theme, theme.get_bookmark_of_user(current_user)), method: :delete %> 
+        <% else %>
+        <%= link_to "bookmark", theme_bookmarks_path(theme), method: :post %> 
+        <% end %>
+    </div>
 <% end %>
+
 

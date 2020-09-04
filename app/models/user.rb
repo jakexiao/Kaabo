@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :comments, through: :themes
   has_many :themeupvotes
   has_many :commentupvotes
+  has_many :bookmarks, through: :themes, dependent: :destroy
 
   has_one_attached :avatar
 

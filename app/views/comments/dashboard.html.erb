@@ -11,6 +11,7 @@
 
   <h5>My follows<h5>
 
+
   <h5>My threads</h5>
 </div>
 
@@ -24,10 +25,31 @@
     <div class="d-flex justify-content-around">
     <div> <%= link_to "Edit", edit_topic_theme_path(theme.topic, theme) %></div>
     <div><%= link_to "Delete",
+
+<h2>My Bookmarks</h2>
+<% @my_bookmarks.each do |bookmark|%>
+    <p><%= bookmark.theme.title %></p>
+    <p> created on <%= bookmark.theme.date %></p>
+
+    <% if bookmark.theme.get_bookmark_of_user(current_user) %>
+    <%= link_to "unbookmark", theme_bookmark_path(bookmark.theme, bookmark.theme.get_bookmark_of_user(current_user)), method: :delete, :query => "dashboard" %>  
+  <% end %>
+
+  <% end %>
+
+<h2>My threads</h2>
+<% @my_themes.each do |theme|%>
+    <p><%= theme.title %></p>
+    <p> created on <%= theme.date %></p>
+    <%= link_to "Go to threads", topic_themes_path(theme.topic, theme) %>
+    <%= link_to "Edit", edit_topic_theme_path(theme.topic, theme) %>
+    <%= link_to "Delete",
+
         topic_theme_path(theme.topic, theme),
         method: :delete,
         data: { confirm: "Are you sure?" } %></div>
     </div>
+
 
        </div>
   <% end %>
@@ -37,3 +59,15 @@
         <p style="font-weight: 200; font-size: initial;"> created on <%= comment.date %></p>
         </div>
     <% end %>
+
+<h2>My comments</h2>
+<% @my_comments.each do |comment|%>
+    <p><%= comment.content %></p>
+    <p> created on <%= comment.date %></p>
+    <%= link_to "Go to comments", topic_theme_path(comment.theme.topic, comment.theme) %>
+    <%= link_to "Edit", edit_theme_comment_path(comment.theme.topic, comment.theme) %>
+     <%= link_to "Delete",
+        topic_theme_path(comment.theme.topic, comment.theme),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+<% end %>
