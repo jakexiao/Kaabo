@@ -1,10 +1,10 @@
-<div>
+
   <div class="banner" style="background-image: url('https://images.unsplash.com/photo-1556484687-30636164638b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80'); height: 500px; background-size: cover;"></div>
       <div class="d-inline-flex p-2"><h4 class="title"><strong>What's Kaabo?</strong></h4></div>
             <p>Kaabo means “Welcome” in Youruba.  Kaabo app, it is a place to improve imigrants access to information in Portugal...</p>
           <div class="d-inline-flex p-2"><h4 class="title"><strong>How does it work?</strong></h4></div>
                 <p>Kaabo provides you clear and concrete official and community information regarding basic rights. Enter a secton below and start your journey.</p>
-          <div class="container">
+          <div class="container background-yellow">
             <div class="d-flex flex-column">
               <div id="target"><i class="fas fa-comments fa-5x"></i></div>
 
@@ -13,39 +13,33 @@
                   <p>Visit the Forum or join the Community. Search and share information, find support and make friends!</p>
                   <%= link_to "Enter", topics_path, class: "btn btn-warning btn-danger-text" %>
 
-
               </div>
             </div>
 
-          <div class="d-inline-flex p-2"><h4 class="title"><strong>Useful Information</strong></h4></div>
+           <div class="container">
+             <div class="d-inline-flex p-2"><h4 class="title"><strong>Useful Information</strong></h4></div>
+      <div class="row">
 
-      <div class="cards">
-        <% @topics.each do |topic| %>
-          <div class='links'>
-            <%= link_to topic_themes_path(topic) do %>
-              <div class="card">
-                <% topicname = topic.category %>
-                <%= image_tag "icons/icon#{topicname}.svg"%>
-                <p><%= link_to "#{topic.category}", topic_themes_path(topic) %></p>
-              </div>
-            <% end %>
+          <% @topics.each do |topic| %>
+            <div class="col-sm-4">
+                  <%= link_to topic_articles_path(topic) do %>
+                <div class="card">
 
-          <div class="d-inline-flex p-2"><h4 class="title" id="info"><strong>Useful Information</strong></h4></div>
-      <div class="cards">
-        <% @topics.each do |topic| %>
+                    <% topicname = topic.category %>
+                    <%= image_tag "icons/icon#{topicname}.svg"%>
+                    <div class="links">
+                      <p><%= link_to "#{topic.category}", topic_articles_path(topic) %></p>
+                    </div>
 
-        <%= link_to topic_articles_path(topic) do %>
-      <div class="card">             
 
-          <% topicname = topic.category %>
-          <%= image_tag "icons/icon#{topicname}.svg"%>
-          <div class="links">
-            <p><%= link_to "#{topic.category}", topic_articles_path(topic) %></p>
+                  </div>
+                <% end %>
+           </div>
+          <% end %>
 
-          </div>
-        <% end %>
+
+
       </div>
-
       <div class="d-inline-flex p-2"><h4 class="title"><strong>Highlights</strong></h4></div>
       <h5>Education</h5>
       <h4>SCOLARSHIPS 20/21</h4>
@@ -53,7 +47,7 @@
       <h5>Documentation</h5>
       <h4>RESIDENCE</h4>
       <P>Due to Covid-19 social restrictions, applying to residence authorization became less beaurocratic. Check all the new regulations.</P>
-</div>
+           </div>
 
 
 
