@@ -1,6 +1,13 @@
-<h1> <%= @topic.category %> </h1> 
-<p> <%= link_to "More topics", topics_path %> </p> 
-<p> <%= link_to "Create a new thread", new_topic_theme_path %> </p> 
+<h1> <%= @topic.category %> </h1>
+
+
+<div class="d-flex justify-content-between">
+<div class="btn-flat-inv"> <%= link_to "back to topics", topics_path %> </div>
+<p> <%= link_to "Create a new thread", new_topic_theme_path %> </p>
+</div>
+
+
+
 
 <div class="form-inline d-flex" style="width:100%">
     <%= form_tag topic_themes_path, method: :get do %>
@@ -8,10 +15,14 @@
     <% end %>
 </div>
 
-<p> <%= link_to "Show all threads", topic_themes_path %> </p> 
+
+<div class="d-flex justify-content-between">
+<div> <%= link_to "Show all threads", topic_themes_path %> </div>
+
 
 <div class="filters">
-    <button type="button" id="type-filter" class="btn btn-outline-secondary">What's hot</button>
+    <button type="button" id="type-filter" class="btn-flat">What's hot?</button>
+</div>
 </div>
 
 <div class="card text-center" id="type-card" style="display: none">
@@ -49,30 +60,38 @@
 <h3> Threads in <%= @topic.category %> </h3>
 
 <% @themes.each do |theme| %>
-    <div data-type='<%=theme.title%>' class="theme">
-        <p><%= theme.title %></p>
+    <div data-type='<%=theme.title%>' class="theme-card">
+        <div><%= theme.title %></div>
         <% if theme.user.username.present?%>
-        <p>by <%= theme.user.username %></p>
+        <div>by <%= theme.user.username %></div>
         <% else %>
-        <p>by <%= theme.user.email %></p>
+        <div>by <%= theme.user.email %></div>
         <% end %>
-        <p><%= theme.date %></p>
-        <p> <%= link_to "See comments", topic_theme_path(@topic,theme) %> </p>
+        <div><%= theme.date %></div>
+
+      <div class="d-flex justify-content-between">
+         <div><%= theme.themeupvotes.count %> likes </div>
+         <div><%= theme.comments.count %> comments </div>
+      </div>
+      <div class="d-flex justify-content-between">
         <% if theme.get_themeupvote_of_user(current_user) %>
-        <%= link_to "dislike", themeupvote_path(theme.get_themeupvote_of_user(current_user)), method: :delete %> 
+         <%= link_to "dislike", themeupvote_path(theme.get_themeupvote_of_user(current_user)), method: :delete %>
         <% else %>
-        <%= link_to "like", theme_themeupvotes_path(theme), method: :post %> 
+         <%= link_to "like", theme_themeupvotes_path(theme), method: :post %>
         <% end %>
-        <p><%= theme.themeupvotes.count %></p>
+
         <% if theme.get_bookmark_of_user(current_user) %>
-        <%= link_to "unbookmark", theme_bookmark_path(theme, theme.get_bookmark_of_user(current_user)), method: :delete %> 
+         <%= link_to "unbookmark", theme_bookmark_path(theme, theme.get_bookmark_of_user(current_user)), method: :delete %>
         <% else %>
-        <%= link_to "bookmark", theme_bookmarks_path(theme), method: :post %> 
+         <%= link_to "bookmark", theme_bookmarks_path(theme), method: :post %>
         <% end %>
+      </div>
+      <div> <%= link_to "See comments", topic_theme_path(@topic,theme) %> </div>
     </div>
 <% end %>
 <div class="container">
   <div class="row">
   <%= paginate @themes %>
 </div>
+
 
