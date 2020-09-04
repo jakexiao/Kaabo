@@ -25,11 +25,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { type_filter } from "../components/filter";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
+  type_filter();
   // initSelect2();
 });
-
-import { type_filter } from "../components/filter";
-type_filter();
