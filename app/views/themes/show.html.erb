@@ -20,7 +20,8 @@
 <% @comments.each do |comment| %>
     <div data-type= '<%= comment.content%>' class="theme-card-show">
       <div class="d-flex justify-content-between">
-    <div>by <%= comment.theme.user.username %></div>
+      <%= comment.content%>
+    <div>by <%= comment.user.username %></div>
     <div><%= comment.date %></div>
      </div>
 
@@ -39,6 +40,6 @@
 
 <div class="container">
   <div class="row">
-  <%= paginate @comments %>
+  <%#= paginate @comments %>
 </div>
 

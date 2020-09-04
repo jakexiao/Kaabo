@@ -31,14 +31,13 @@ class ThemesController < ApplicationController
   end
 
   def show
-    if params[:query]
+    if params[:query].present?
       @theme = Theme.find(params[:id])
       @comments = Comment.where("content ILIKE '%#{params[:query]}%'")
     else
       @theme = Theme.find(params[:id])
-      @comments = @theme.comments.sort
+      @comments = @theme.comments
     end
-    @comments = Comment.page(params[:page]).page(5)
   end
 
   def destroy
