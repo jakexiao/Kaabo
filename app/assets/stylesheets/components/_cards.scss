@@ -2,11 +2,7 @@
   background-color: white;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
-}
+
 
 .card {
   background-size: cover;
@@ -22,6 +18,7 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-color: #F6F4E6;
+  margin-bottom: 20px;
 }
 
 .card img {

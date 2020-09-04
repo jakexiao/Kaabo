@@ -16,21 +16,21 @@ User.destroy_all
 puts "Creating user..."
 
 user1 = User.create!(
-    username: "kaabo",
+    : "kaabo",
     email: "kaabo@kaabo.com",
     password: "12345678"
 )
 
 puts "Creating topic..."
 
-# Topic.create!(category: "Health") 
-# Topic.create!(category: "Jobs") 
-# Topic.create!(category: "Housing") 
-# Topic.create!(category: "Finance") 
-# Topic.create!(category: "Food") 
-# Topic.create!(category: "Education") 
-# Topic.create!(category: "Visa") 
-# Topic.create!(category: "Legal services") 
+# Topic.create!(category: "Health")
+# Topic.create!(category: "Jobs")
+# Topic.create!(category: "Housing")
+# Topic.create!(category: "Finance")
+# Topic.create!(category: "Food")
+# Topic.create!(category: "Education")
+# Topic.create!(category: "Visa")
+# Topic.create!(category: "Legal services")
 
 puts "Creating 10 articles..."
 
@@ -40,8 +40,8 @@ puts "Done with articles!"
 
 puts "Creating 10 themes(threads)..."
 topic_categories = ["Health", "Jobs", "Housing", "Finance", "Food", "Education", "Visa", "Legal services"]
-count = 0 
-8.times do 
+count = 0
+8.times do
     topic = Topic.new(
         category: topic_categories[count]
     )

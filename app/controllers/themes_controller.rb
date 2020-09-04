@@ -27,6 +27,7 @@ class ThemesController < ApplicationController
     @themes = @topic.themes.sort
     @bookmark = Bookmark.new
     end
+    @themes = Theme.page(params[:page]).per(10)
   end
 
   def show
@@ -37,6 +38,7 @@ class ThemesController < ApplicationController
       @theme = Theme.find(params[:id])
       @comments = @theme.comments.sort
     end
+    @comments = Comment.page(params[:page]).page(5)
   end
 
   def destroy

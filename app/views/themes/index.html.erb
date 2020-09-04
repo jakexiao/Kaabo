@@ -89,6 +89,9 @@
       <div> <%= link_to "See comments", topic_theme_path(@topic,theme) %> </div>
     </div>
 <% end %>
-
+<div class="container">
+  <div class="row">
+  <%= paginate @themes %>
+</div>
 
 
