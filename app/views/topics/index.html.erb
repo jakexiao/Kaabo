@@ -4,13 +4,13 @@
     <h1>Topics</h1>
     <div class="cards">
       <% @topics.each do |topic| %>
-        <div class="card">
-          <% topicname = topic.category %>
-          <%= image_tag "icons/icon#{topicname}.svg", width: 100, class: "icons" %>
-          <div class="links">
-            <p><%= link_to "#{topic.category}", topic_themes_path(topic) %></p>
+          <div class="card">
+            <% topicname = topic.category %>
+            <%= image_tag "icons/icon#{topicname}.svg", width: 100, class: "icons" %>
+            <div class="links">
+              <p><%= link_to "#{topic.category}", topic_themes_path(topic) %></p>
+            </div>
           </div>
-        </div>
       <% end %>
     </div>
   </div>
