@@ -1,13 +1,30 @@
-<h2>My profile</h2>
-<% if @current_user.username.present? && @current_user.avatar.present? %>
-<p> My username: <%= @current_user.username %></p>
-<p> My avatar: <%= image_tag @current_user.avatar %></p>
-<%= link_to "Edit profile", edit_user_path(@current_user) %>
-<% else %>
-<p> You don't have a username or avatar, click "Complete profile" to create one!<p> 
-<%= link_to "Complete profile", edit_user_path(@current_user) %>
-<% end %>
+<div class="container">
+  <h5>My profile</h5>
+  <% if @current_user.username.present? && @current_user.avatar.present? %>
+  <p> My username: <%= @current_user.username %></p>
+  <p> My avatar: <%= image_tag @current_user.avatar %></p>
+  <%= link_to "Edit profile", edit_user_path(@current_user) %>
+  <% else %>
+  <p> You don't have a username or avatar, click "Complete profile" to create one!<p>
+  <%= link_to "Complete profile", edit_user_path(@current_user) %>
+  <% end %>
 
+  <h5>My follows<h5>
+
+
+  <h5>My threads</h5>
+</div>
+
+<div class="cards">
+  <% @my_themes.each do |theme|%>
+  <div class="card">
+    <p style="font-weight: 200; font-size: initial;"><%= theme.title %></p>
+    <p style="font-weight: 200; font-size: initial;"> created on <%= theme.date %></p>
+
+
+    <div class="d-flex justify-content-around">
+    <div> <%= link_to "Edit", edit_topic_theme_path(theme.topic, theme) %></div>
+    <div><%= link_to "Delete",
 
 <h2>My Bookmarks</h2>
 <% @my_bookmarks.each do |bookmark|%>
@@ -27,10 +44,21 @@
     <%= link_to "Go to threads", topic_themes_path(theme.topic, theme) %>
     <%= link_to "Edit", edit_topic_theme_path(theme.topic, theme) %>
     <%= link_to "Delete",
+
         topic_theme_path(theme.topic, theme),
         method: :delete,
-        data: { confirm: "Are you sure?" } %>
-<% end %>
+        data: { confirm: "Are you sure?" } %></div>
+    </div>
+
+
+       </div>
+  <% end %>
+      <h4>My comments</h4>
+    <% @my_comments.each do |comment|%>
+        <p style="font-weight: 200; font-size: initial;"><%= comment.content %></p>
+        <p style="font-weight: 200; font-size: initial;"> created on <%= comment.date %></p>
+        </div>
+    <% end %>
 
 <h2>My comments</h2>
 <% @my_comments.each do |comment|%>
