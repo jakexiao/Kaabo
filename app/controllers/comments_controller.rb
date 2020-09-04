@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @theme = Theme.find(params[:theme_id])
     @comment.theme = @theme
-    @comment.theme.user = current_user
+    @comment.user = current_user
     if @comment.save
         redirect_to topic_theme_path(@comment.theme.topic, @comment.theme), notice: "comment created"
     else 
