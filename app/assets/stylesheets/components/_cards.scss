@@ -1,11 +1,11 @@
 .body-color {
-  background-color: white; 
+  background-color: white;
 }
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 30px;
 }
 
 .card {
@@ -22,6 +22,10 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-color: #F6F4E6;
+}
+
+.card img {
+  height: 100px;
 }
 
 .card .icons {

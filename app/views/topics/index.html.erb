@@ -1,7 +1,13 @@
 <body class="body-color">
 <div class="full-page-container">
-  <div class="container">
-    <h1>Topics</h1>
+
+<h1 class="forumtitle"> Kaabo Forum </h1>
+
+<div class="logo">
+<%= image_tag "https://res.cloudinary.com/cassarola/image/upload/v1599155458/Design_sem_nome-removebg-preview1_rznueg.png" %>
+</div>
+
+
     <div class="cards">
       <% @topics.each do |topic| %>
           <div class="card">
@@ -13,6 +19,6 @@
           </div>
       <% end %>
     </div>
-  </div>
+
 </div>
 </body>

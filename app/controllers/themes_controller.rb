@@ -19,13 +19,24 @@ class ThemesController < ApplicationController
   end
 
   def index
+    if params[:query]
+      @topic = Topic.find(params[:topic_id])
+      @themes = Theme.where("title ILIKE '%#{params[:query]}%'")
+    else
     @topic = Topic.find(params[:topic_id])
     @themes = @topic.themes.sort
+    @bookmark = Bookmark.new
+    end
   end
 
   def show
-    @theme = Theme.find(params[:id])
-    @comments = @theme.comments.sort
+    if params[:query]
+      @theme = Theme.find(params[:id])
+      @comments = Comment.where("content ILIKE '%#{params[:query]}%'")
+    else
+      @theme = Theme.find(params[:id])
+      @comments = @theme.comments.sort
+    end
   end
 
   def destroy
