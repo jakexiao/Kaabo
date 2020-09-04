@@ -20,12 +20,12 @@ class ThemesController < ApplicationController
 
   def index
     @topic = Topic.find(params[:topic_id])
-    @themes = @topic.themes.sort
+    @themes = @topic.themes.page(params[:page]).per(5)
   end
 
   def show
     @theme = Theme.find(params[:id])
-    @comments = @theme.comments.sort
+    @comments = @theme.comments.page(params[:page]).per(10)
   end
 
   def destroy
