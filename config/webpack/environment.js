@@ -15,6 +15,4 @@ environment.plugins.prepend(
   })
 );
 
-environment.loaders.delete("nodeModules");
-
 module.exports = environment;
