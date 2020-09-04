@@ -21,7 +21,7 @@ class ThemesController < ApplicationController
   def index
     if params[:query]
       @topic = Topic.find(params[:topic_id])
-      @themes = Theme.where("title ILIKE '%#{params[:query]}%'")
+      @themes = Theme.where("title ILIKE '%#{params[:query]}%'").page(params[:page]).per(10)
     else
     @topic = Topic.find(params[:topic_id])
     @themes = @topic.themes.sort
