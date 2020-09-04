@@ -34,8 +34,8 @@
       <div class="cards">
         <% @topics.each do |topic| %>
 
-        <%= link_to topic_themes_path(topic) do %>
-      <div class="card">
+        <%= link_to topic_articles_path(topic) do %>
+      <div class="card">             
 
           <% topicname = topic.category %>
           <%= image_tag "icons/icon#{topicname}.svg"%>
