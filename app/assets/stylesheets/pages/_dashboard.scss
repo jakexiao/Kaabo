@@ -1,12 +1,8 @@
-.fas fa-user-circle:before {
-  position: relative;
-  margin-top: 20px;
-}
+
 
 h5 {
-  color: #FDDB3A;
-  margin-left: 58px;
-  text-align: left;
+  color: #52575d;
+
 }
 
 p {
@@ -14,10 +10,29 @@ p {
   font-size: initial;
 }
 
-a {
+
+.card-wraper {
+  background-color: #F6F4E6;
+  margin-left: 50px;
+  border-radius: 3px;
+}
+
+.index-link {
   color: #52575d;
-  text-decoration: none;
-  background-color: transparent;
+  padding: 10px;
   font-weight: 200;
   font-size: initial;
+}
+
+.edit-text {
+  margin-left: 58px;
+}
+
+.logo {
+  margin: 0 auto;
+    width: 491px;
+}
+
+.head {
+  text-align: center;
 }
