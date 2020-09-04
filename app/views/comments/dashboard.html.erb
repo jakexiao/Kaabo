@@ -9,23 +9,6 @@
   <%= link_to "Complete profile", edit_user_path(@current_user) %>
   <% end %>
 
-  <h5>My follows<h5>
-
-
-  <h5>My threads</h5>
-</div>
-
-<div class="cards">
-  <% @my_themes.each do |theme|%>
-  <div class="card">
-    <p style="font-weight: 200; font-size: initial;"><%= theme.title %></p>
-    <p style="font-weight: 200; font-size: initial;"> created on <%= theme.date %></p>
-
-
-    <div class="d-flex justify-content-around">
-    <div> <%= link_to "Edit", edit_topic_theme_path(theme.topic, theme) %></div>
-    <div><%= link_to "Delete",
-
 <h2>My Bookmarks</h2>
 <% @my_bookmarks.each do |bookmark|%>
     <p><%= bookmark.theme.title %></p>
@@ -53,12 +36,6 @@
 
        </div>
   <% end %>
-      <h4>My comments</h4>
-    <% @my_comments.each do |comment|%>
-        <p style="font-weight: 200; font-size: initial;"><%= comment.content %></p>
-        <p style="font-weight: 200; font-size: initial;"> created on <%= comment.date %></p>
-        </div>
-    <% end %>
 
 <h2>My comments</h2>
 <% @my_comments.each do |comment|%>
