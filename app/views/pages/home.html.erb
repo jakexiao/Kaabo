@@ -22,19 +22,21 @@
 
           <% @topics.each do |topic| %>
             <div class="col-sm-4">
-                  <%= link_to topic_themes_path(topic) do %>
+                  <%= link_to topic_articles_path(topic) do %>
                 <div class="card">
 
                     <% topicname = topic.category %>
                     <%= image_tag "icons/icon#{topicname}.svg"%>
                     <div class="links">
-                      <p><%= link_to "#{topic.category}", topic_themes_path(topic) %></p>
+                      <p><%= link_to "#{topic.category}", topic_articles_path(topic) %></p>
                     </div>
+
 
                   </div>
                 <% end %>
            </div>
           <% end %>
+
 
 
       </div>

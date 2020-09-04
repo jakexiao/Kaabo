@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_111032) do
+ActiveRecord::Schema.define(version: 2020_09_04_123839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,9 @@ ActiveRecord::Schema.define(version: 2020_09_03_111032) do
     t.bigint "theme_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["theme_id"], name: "index_comments_on_theme_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "commentupvotes", force: :cascade do |t|
@@ -120,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_111032) do
   add_foreign_key "bookmarks", "themes"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "themes"
+  add_foreign_key "comments", "users"
   add_foreign_key "commentupvotes", "comments"
   add_foreign_key "commentupvotes", "users"
   add_foreign_key "themes", "topics"
