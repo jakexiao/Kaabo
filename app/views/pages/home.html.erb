@@ -21,7 +21,8 @@
       <div class="row">
 
           <% @topics.each do |topic| %>
-            <div class="col-sm-4">
+            <div class="row">
+              <div class="col-xs-6">
                   <%= link_to topic_articles_path(topic) do %>
                 <div class="card">
 
@@ -34,8 +35,10 @@
 
                   </div>
                 <% end %>
-           </div>
-          <% end %>
+              </div>
+                <% end %>
+              </div>
+
 
 
 
