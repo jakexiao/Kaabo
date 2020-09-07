@@ -1,5 +1,5 @@
-<div >
-  <div>
+<div class="container">
+  <div class="theme_edit">
       <%= simple_form_for([@topic, @theme]) do |f| %>
       <%= f.input :title %>
       <%= f.input :date, :as => :hidden, :input_html => { :value => Time.now } %>
