@@ -3,6 +3,7 @@
 <div class="d-flex justify-content-between">
 <div class="btn-flat-inv"> Go back to <%= link_to @theme.topic.category, topic_themes_path %> </div>
 <div> <%= link_to "Leave a comment", new_theme_comment_path(@theme) %> </div>
+<div> <%= social_share_button_tag(@theme.title) %> </div>
 </div>
 
 
@@ -13,14 +14,21 @@
           <% end %>
         </div>
 
-<p> <%= link_to "Show all comments", topic_theme_path %> </p>
+<p> <%= link_to "Show all comments", topic_theme_path(reset: true) %> </p>
 
+<%= link_to "Most liked", topic_theme_path(filter: 'likes'), class: "btn btn-primary" %>
+ <%= link_to "Today", topic_theme_path(period: 'today'), class: "btn btn-primary" %>
+ <%= link_to "This week", topic_theme_path(period: 'week'), class: "btn btn-primary" %>
+ <%= link_to "This month", topic_theme_path(period: 'month'), class: "btn btn-primary" %>
+ <%= link_to "This year", topic_theme_path(period: 'year'), class: "btn btn-primary" %>
+ <%= link_to "All time", topic_theme_path(period: 'all'), class: "btn btn-primary" %>
 
 
 <% @comments.each do |comment| %>
     <div data-type= '<%= comment.content%>' class="theme-card-show">
       <div class="d-flex justify-content-between">
-    <div>by <%= comment.theme.user.username %></div>
+      <%= comment.content%>
+    <div>by <%= comment.user.username %></div>
     <div><%= comment.date %></div>
      </div>
 

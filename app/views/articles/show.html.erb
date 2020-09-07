@@ -4,6 +4,7 @@
 
     <h4><%= @article.date %></h4>
     <p><%= @article.content %></p>
+    <%= social_share_button_tag(@article.title) %>
   </div>
 </div>
 

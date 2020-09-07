@@ -69,3 +69,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # pagination gem
 gem 'kaminari', '~> 0.17.0'
+
+# social sharing gem
+gem 'social-share-button'

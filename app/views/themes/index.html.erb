@@ -17,14 +17,23 @@
 </div>
 
 <div class="d-flex justify-content-between">
-<div class="filters">
-    <div type="button" id="type-filter" class="btn-flat-inv">What's hot?</div>
-  </div>
+<div> <%= link_to "Show all threads", topic_themes_path(reset: true) %> </div>
+
+ <%= link_to "Most liked", topic_themes_path(filter: 'likes'), class: "btn btn-primary" %>
+ <%= link_to "Most commented", topic_themes_path(filter: 'comments'), class: "btn btn-primary" %>
+ <%= link_to "Today", topic_themes_path(period: 'today'), class: "btn btn-primary" %>
+ <%= link_to "This week", topic_themes_path(period: 'week'), class: "btn btn-primary" %>
+ <%= link_to "This month", topic_themes_path(period: 'month'), class: "btn btn-primary" %>
+ <%= link_to "This year", topic_themes_path(period: 'year'), class: "btn btn-primary" %>
+ <%= link_to "All time", topic_themes_path(period: 'all'), class: "btn btn-primary" %>
+
+<%# <div class="filters">
+    <button type="button" id="type-filter" class="btn-flat">What's hot?</button>
+</div> %>
 </div>
 
+<%# <div class="card text-center" id="type-card" style="display: none">
 
-
-<div class="card text-center" id="type-card" style="display: none">
 
     <br>
 
@@ -54,7 +63,7 @@
 
     <br>
 
-</div>
+</div> %>
 
 
 

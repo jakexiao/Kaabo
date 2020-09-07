@@ -7,6 +7,18 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+// Social-share button
+@import "social-share-button";
+
+$size: 24px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
 
 // Your CSS partials
 @import "components/index";
