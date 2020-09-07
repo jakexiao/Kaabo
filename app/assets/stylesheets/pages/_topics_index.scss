@@ -15,3 +15,8 @@ body {
 
 }
 
+@media (max-width: 768px) {
+ .logo img {
+   max-width: 150px;
+ }
+}
