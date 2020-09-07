@@ -1,0 +1,9 @@
+<div >
+  <div>
+      <%= simple_form_for([@theme, @comment]) do |f| %>
+      <%= f.input :content, as: :text %>
+      <%= f.input :date, :as => :hidden, :input_html => { :value => Time.now } %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
