@@ -8,6 +8,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 gem 'simple_form'
 gem 'faker'
+# Search gem
+gem 'pg_search', '~> 2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
@@ -69,3 +71,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # pagination gem
 gem 'kaminari', '~> 0.17.0'
+
+# social sharing gem
+gem 'social-share-button'

@@ -1,8 +1,39 @@
 .theme-card {
-  background: $yellow;
-  padding: 5px;
-  margin: 5px;
+  background: #F6F4E6;
+  padding: 10px;
+  margin: 15px;
   border-radius: 5px;
+  border-style: solid;
+  border-color: #FDDB3A;
 }
 
 
+.link-deco a {
+  text-decoration: none;
+  color: #52575D;
+}
+
+#link-color a {
+  text-decoration: none;
+  color: #52575D;
+
+}
+
+.search-btn {
+  border-style: solid;
+  border-color: #FDDB3A;
+  border-radius: 5px;
+
+}
+
+#heart-like {
+  color:#FDDB3A;
+
+}
+
+.replies-theme a {
+  text-decoration: underline;
+  color: #52575D;
+
+
+}
