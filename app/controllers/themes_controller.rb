@@ -19,24 +19,22 @@ class ThemesController < ApplicationController
   end
 
   def index
-    if params[:query]
-      @topic = Topic.find(params[:topic_id])
-      @themes = Theme.where("title ILIKE '%#{params[:query]}%'").page(params[:page]).per(10)
-    else
+    # if params[:query]
+    #   @topic = Topic.find(params[:topic_id])
+    #   @themes = Theme.where("title ILIKE '%#{params[:query]}%'").page(params[:page]).per(10)
+    # else
     @topic = Topic.find(params[:topic_id])
     @themes = @topic.themes.page(params[:page]).per(10)
     @bookmark = Bookmark.new
-    end
   end
 
   def show
-    if params[:query].present?
-      @theme = Theme.find(params[:id])
-      @comments = Comment.where("content ILIKE '%#{params[:query]}%'")
-    else
+    # if params[:query].present?
+    #   @theme = Theme.find(params[:id])
+    #   @comments = Comment.where("content ILIKE '%#{params[:query]}%'")
+    # else
       @theme = Theme.find(params[:id])
       @comments = @theme.comments
-    end
   end
 
   def destroy
