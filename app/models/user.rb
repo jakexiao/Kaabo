@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :commentupvotes
   has_many :bookmarks, through: :themes, dependent: :destroy
 
-  has_one_attached :avatar
+  has_one_attached :photo
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

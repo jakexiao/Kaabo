@@ -9,9 +9,9 @@
   </div>
 
   <h5>My profile</h5>
-  <% if @current_user.username.present? && @current_user.avatar.present? %>
+  <% if @current_user.username.present? && @current_user.photo.present? %>
   <p> My username: <%= @current_user.username %></p>
-  <p> My avatar: <%= image_tag @current_user.avatar %></p>
+  <p> My avatar: <%= cl_image_tag current_user.photo.key, height: 150, width: 200, crop: :fill %></p>
   <%= link_to "Edit profile", edit_user_path(@current_user), class: "edit-text" %>
   <% else %>
   <p> You don't have a username or avatar, click "Complete profile" to create one!</p>
