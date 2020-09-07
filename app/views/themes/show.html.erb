@@ -13,8 +13,14 @@
           <% end %>
         </div>
 
-<p> <%= link_to "Show all comments", topic_theme_path %> </p>
+<p> <%= link_to "Show all comments", topic_theme_path(reset: true) %> </p>
 
+<%= link_to "Most liked", topic_theme_path(filter: 'likes'), class: "btn btn-primary" %>
+ <%= link_to "Today", topic_theme_path(period: 'today'), class: "btn btn-primary" %>
+ <%= link_to "This week", topic_theme_path(period: 'week'), class: "btn btn-primary" %>
+ <%= link_to "This month", topic_theme_path(period: 'month'), class: "btn btn-primary" %>
+ <%= link_to "This year", topic_theme_path(period: 'year'), class: "btn btn-primary" %>
+ <%= link_to "All time", topic_theme_path(period: 'all'), class: "btn btn-primary" %>
 
 
 <% @comments.each do |comment| %>
@@ -40,6 +46,6 @@
 
 <div class="container">
   <div class="row">
-  <%#= paginate @comments %>
+  <%= paginate @comments %>
 </div>
 
