@@ -29,8 +29,7 @@
       <div class="row">
 
           <% @topics.each do |topic| %>
-            <div class="row">
-              <div class="col-xs-6">
+            <div class="col-sm-4">
                   <%= link_to topic_articles_path(topic) do %>
                 <div class="card">
 
@@ -43,22 +42,23 @@
 
                   </div>
                 <% end %>
-              </div>
-                <% end %>
-              </div>
-
-
-
+           </div>
+          <% end %>
 
       </div>
       <div class="d-inline-flex p-2"><h4 class="title"><strong>Highlights</strong></h4></div>
-      <h5>Education</h5>
-      <h4>SCOLARSHIPS 20/21</h4>
-      <p>Scholar year it is about to start. Imigrants can also apply to scholarship and access other social support services.</p>
-      <h5>Documentation</h5>
+      <div class="container">
+        <h5><strong>Education</strong></h5>
+        <h4>SCOLARSHIPS 20/21</h4>
+        <p>Scholar year it is about to start. Imigrants can also apply to scholarship and access other social support services.</p>
+      </div>
+      <div class="container">
+        <h5><strong>Documentation</strong></h5>
       <h4>RESIDENCE</h4>
       <P>Due to Covid-19 social restrictions, applying to residence authorization became less beaurocratic. Check all the new regulations.</P>
-           </div>
+      </div>
+
+      </div>
 
 
 

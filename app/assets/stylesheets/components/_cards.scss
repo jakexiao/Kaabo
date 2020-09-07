@@ -6,7 +6,7 @@
 .card {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .card img {
-  height: 100px;
+  height: 50px;
 }
 
 .card .icons {
@@ -35,17 +35,26 @@
   color:black;
 }
 
+.container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+h5 {
+  color: black;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
