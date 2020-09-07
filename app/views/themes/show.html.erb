@@ -3,6 +3,7 @@
 <div class="d-flex justify-content-between">
 <div class="btn-flat-inv"> Go back to <%= link_to @theme.topic.category, topic_themes_path %> </div>
 <div> <%= link_to "Leave a comment", new_theme_comment_path(@theme) %> </div>
+<div> <%= social_share_button_tag(@theme.title) %> </div>
 </div>
 
 
