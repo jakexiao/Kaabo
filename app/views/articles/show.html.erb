@@ -3,6 +3,7 @@
     <div id="content-wrap">
       <h1><%= @article.title %></h1>
       <h4><%= @article.date %></h4>
+      <%= image_tag @article.image_url, size: "350x350"%>
       <p><%= @article.content %></p>
       <%= social_share_button_tag(@article.title) %>
       <div class="btn-flat-inv"> Go back to <%= link_to @article.topic.category, topic_articles_path %> </div>
