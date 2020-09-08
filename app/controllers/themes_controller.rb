@@ -1,4 +1,6 @@
 class ThemesController < ApplicationController
+  before_action :authenticate_user!, only: [:new] 
+
   def new
       @topic = Topic.find(params[:topic_id])
       # @user = User.find(params[:user_id])

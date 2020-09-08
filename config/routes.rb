@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :topics, only: [:index, :show] do
-    resources :articles, only: [:index, :show]
+    resources :articles
   end
 
   resources :themeupvotes, only: [:destroy] 
