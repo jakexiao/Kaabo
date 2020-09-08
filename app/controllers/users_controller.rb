@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     if params[:query]
       sql_query = "username ILIKE :query OR email ILIKE :query"
