@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   belongs_to :topic
   include PgSearch::Model
-  multisearchable against: [:title, :content]
+  multisearchable against: [:title, :content, :id]
+    
 end

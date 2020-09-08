@@ -6,7 +6,7 @@ class Theme < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
 
   include PgSearch::Model
-  multisearchable against: [:title]
+  multisearchable against: [:title, :id]
 
   def get_themeupvote_of_user(user)
     self.themeupvotes.where(user: user).first

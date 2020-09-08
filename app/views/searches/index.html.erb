@@ -1,7 +1,11 @@
 <div class="container">
   <ul>
     <% @results.each do |result| %>
-      <li><%= result.searchable.title %></li>
+      <% if result.searchable_type == "Article" %>
+        <li>Article: <%= link_to result.searchable.title, topic_article_path(find_article_topic(result.searchable_id), result.searchable_id) %></li>
+        <% else %>
+        <li>Thread: <%= link_to result.searchable.title, topic_theme_path(find_theme_topic(result.searchable_id), result.searchable_id) %></li>
+      <% end %>
     <% end %>
   </ul>
 </div>
