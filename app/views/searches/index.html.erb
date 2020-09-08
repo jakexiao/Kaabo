@@ -1,7 +1,22 @@
 <div class="container">
-  <ul>
-    <% @results.each do |result| %>
-      <li><%= result.searchable.title %></li>
-    <% end %>
-  </ul>
+  <h4 class="title">Articles</h4>
+  <div class="card-wraper">
+    <div class="card-body">
+      <% @results.each do |result| %>
+        <% if result.searchable_type == "Article" %>
+          <p><%= link_to result.searchable.title, topic_article_path(find_article_topic(result.searchable_id), result.searchable_id) %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <h4 class="title"> Threads</h4>
+  <div class="card-wraper">
+    <div class="card-body">
+      <% @results.each do |result| %>
+        <% if result.searchable_type == "Theme" %>
+          <p><%= link_to result.searchable.title, topic_theme_path(find_theme_topic(result.searchable_id), result.searchable_id) %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

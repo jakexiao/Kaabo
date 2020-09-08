@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
     else
       @topic = Topic.find(params[:topic_id])
       @articles = Article.all.order(date: :desc)
-    end 
+    end
     @articles = @articles.page(params[:page]).per(10)
   end
 
