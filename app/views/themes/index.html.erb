@@ -2,35 +2,34 @@
 <h1> <%= @topic.category %> </h1>
 
 
-
-  <div class="form-inline d-flex" style="width:100%">
-      <%= form_tag topic_themes_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search', class: 'search-btn'%>
+  <div class="form-inline d-flex">
+    <div><%= form_tag topic_themes_path, method: :get do %> </div>
+     <div class="search-box"> <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:60%"%>
+       <%= submit_tag 'search', class: 'search-btn'%> </div>
       <% end %>
   </div>
 
 
-<div class="d-flex justify-content-between">
+  <div class="btn-blocs">
+    <div class="d-flex justify-content-between">
+      <div class="row">
+     <%= link_to "Show all threads", topic_themes_path(reset: true), class: "btn btn-outline-secondary" %>
+     <%= link_to "Most liked", topic_themes_path(filter: 'likes'), class: "btn btn-outline-secondary" %>
+     <%= link_to "Most commented", topic_themes_path(filter: 'comments'), class: "btn btn-outline-secondary" %>
+     <%= link_to "Today", topic_themes_path(period: 'today'), class: "btn btn-outline-secondary" %>
+     <%= link_to "This week", topic_themes_path(period: 'week'), class: "btn btn-outline-secondary" %>
+     <%= link_to "This month", topic_themes_path(period: 'month'), class: "btn btn-outline-secondary"%>
+     <%= link_to "This year", topic_themes_path(period: 'year'), class: "btn btn-outline-secondary" %>
+    <!--  <%= link_to "All time", topic_themes_path(period: 'all'), class: "btn btn-outline-secondary" %> -->
+     </div>
+    </div>
+ </div>
 
-  <div class="link-deco"> <%= link_to "Show all threads", topic_themes_path %> </div>
-  <div class="link-deco"> <%= link_to "Create a new thread ", new_topic_theme_path %> </div>
-</div>
-
-<div class="d-flex justify-content-between">
-<div> <%= link_to "Show all threads", topic_themes_path(reset: true) %> </div>
-
- <%= link_to "Most liked", topic_themes_path(filter: 'likes'), class: "btn btn-primary" %>
- <%= link_to "Most commented", topic_themes_path(filter: 'comments'), class: "btn btn-primary" %>
- <%= link_to "Today", topic_themes_path(period: 'today'), class: "btn btn-primary" %>
- <%= link_to "This week", topic_themes_path(period: 'week'), class: "btn btn-primary" %>
- <%= link_to "This month", topic_themes_path(period: 'month'), class: "btn btn-primary" %>
- <%= link_to "This year", topic_themes_path(period: 'year'), class: "btn btn-primary" %>
- <%= link_to "All time", topic_themes_path(period: 'all'), class: "btn btn-primary" %>
+<div class="link-deco"> <%= link_to "Create a new thread ", new_topic_theme_path %> </div>
 
 <%# <div class="filters">
     <button type="button" id="type-filter" class="btn-flat">What's hot?</button>
 </div> %>
-</div>
 
 <%# <div class="card text-center" id="type-card" style="display: none">
 
@@ -120,7 +119,7 @@
 <% end %>
 
 <div class="d-flex justify-content-between">
-  <div class="btn-flat-inv" id="link-color"> <%= link_to "back", topics_path %> </div>
+  <div class="btn-flat-inv" id="link-color"> <%= link_to " << ", topics_path %> </div>
 
 
 

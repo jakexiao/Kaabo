@@ -1,7 +1,7 @@
 .theme-card {
   background: #F6F4E6;
-  padding: 10px;
-  margin: 15px;
+  padding: 35px;
+  margin-top: 15px;
   border-radius: 5px;
   border-style: solid;
   border-color: #FDDB3A;
@@ -19,10 +19,17 @@
 
 }
 
+.search-box {
+
+  color: #FDDB3A;
+  border-radius: 5px;
+}
+
 .search-btn {
   border-style: solid;
   border-color: #FDDB3A;
   border-radius: 5px;
+  width: 120px;
 
 }
 
@@ -37,3 +44,22 @@
 
 
 }
+
+.btn-blocs {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+
+}
+
+.btn-outline-secondary {
+  border-radius: 5px;
+  margin:10px;
+   &:hover {
+    color: #52575D;
+    text-decoration: none;
+    background-color: white;
+  }
+
+}
+
