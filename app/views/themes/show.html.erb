@@ -1,7 +1,13 @@
 <div class="container">
 
 <h1> <%= @theme.title %> </h1>
-
+<div data-type= '<%= @theme.content%>' class="theme-card-show-main">
+  <div class="d-flex justify-content-between">
+    <%= @theme.content%>
+    <div>by <%= @theme.user.username %></div>
+    <div><%= @theme.date %></div>
+  </div>
+</div>
 
 
 
