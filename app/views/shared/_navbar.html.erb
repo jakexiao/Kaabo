@@ -21,8 +21,16 @@
           <%= link_to "Forum", "/topics", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Search", "#", class: "nav-link" %>
+          <button type="button" id="master-search" class="btn nav-link">Search</button> 
         </li>
+        <div class="text-center" id="search-card" style="display: none">
+          <%# <div class="container"> %>
+          <%= form_tag searches_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], placeholder:"Search anything here" %>
+          <%= submit_tag 'search' %>
+          <% end %>
+          <%# </div> %>
+        </div>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
