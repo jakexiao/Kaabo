@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="">
+      <%= simple_form_for([@topic, @article]) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :content %>
+      <%= f.input :date, :as => :hidden, :input_html => { :value => Time.now } %>
+      <%= f.input :image_url %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_09_08_164955) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,7 +45,9 @@ ActiveRecord::Schema.define(version: 2020_09_08_164955) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "topic_id"
     t.string "image_url"
+    t.bigint "user_id"
     t.index ["topic_id"], name: "index_articles_on_topic_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "bookmarks", force: :cascade do |t|
@@ -122,12 +125,14 @@ ActiveRecord::Schema.define(version: 2020_09_08_164955) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "topics"
+  add_foreign_key "articles", "users"
   add_foreign_key "bookmarks", "themes"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "themes"
