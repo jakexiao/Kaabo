@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
+  
   def new
     @theme = Theme.find(params[:theme_id])
     @comment = Comment.new

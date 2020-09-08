@@ -1,7 +1,25 @@
+ <div class="form-inline d-flex" style="width:100%">
+      <%= form_tag topic_articles_path, method: :get do %>
+      <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search', class: 'search-btn'%>
+      <% end %>
+  </div>
+
+<%= link_to "Create a new article", new_topic_article_path %>
+
 <% @articles.each do |article| %>
-<%= image_tag article.image_url %>
-<h1><%= article.title %></h1>
-<p> <%= article.date %></p>
- <%= link_to "read more", topic_article_path(@topic,article) %>
+    <% if article.image_url.nil? %>
+    <%= image_tag "https://source.unsplash.com/500x400/?#{article.topic.category}"  %>
+    <% else %>
+    <%= image_tag article.image_url, size: "500x400" %>
+    <% end %>
+    <h1><%= article.title %></h1>
+    <p> <%= article.date %></p>
+    <%= link_to "read more", topic_article_path(article.topic,article) %>
 <% end %>
+
+<div class="container">
+  <div class="row">
+  <%= paginate @articles %>
+  </div>
+</div>
 
