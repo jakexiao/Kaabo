@@ -18,8 +18,10 @@ puts "Creating user..."
 user1 = User.create!(
     username: "kaabo",
     email: "kaabo@kaabo.com",
-    password: "12345678"
+    password: "12345678",
+    admin: true
 )
+
 
 puts "Creating topic..."
 
@@ -55,7 +57,8 @@ count = 0
           content: Faker::Lorem.paragraph(sentence_count: 10),
           date: Faker::Date.between(from: 10.days.ago, to: Date.today),
           image_url: "https://source.unsplash.com/500x400/?#{topic.category}",
-          topic_id: topic.id)
+          topic_id: topic.id,
+          user_id: user1.id)
         article.save
     end
 
