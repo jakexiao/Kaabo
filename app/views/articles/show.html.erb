@@ -1,5 +1,5 @@
 <div class="container .col-xs-">
-  <% if current_user.admin %>
+  <% if !current_user.nil? %>
     <div class="container_show">
       <div id="content-wrap">
         <h2 class="article-title"><%= @article.title %></h2>

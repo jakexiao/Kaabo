@@ -7,8 +7,10 @@
         <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search'%>
         <% end %>
    </div> </br>
-
+  
+  <% if !current_user.nil? %>
   <%= link_to "Create a new article", new_topic_article_path, class: "article-link"%>
+  <% end %>
 
 
   <div class="index-page-container col-10">
