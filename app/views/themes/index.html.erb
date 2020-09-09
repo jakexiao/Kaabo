@@ -3,9 +3,12 @@
 
 
     <div class="form-inline d-flex">
-      <div><%= form_tag topic_themes_path, method: :get do %> </div>
+      <div>
+        <%= form_tag topic_themes_path, method: :get do %> 
+      </div>
       <div class="search-box"> <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:60%"%>
-        <%= submit_tag 'search', class: 'search-btn'%> </div>
+        <%= submit_tag 'search', class: 'search-btn'%> 
+      </div>
         <% end %>
     </div>
 
@@ -67,36 +70,33 @@
 
 
   <% @themes.each do |theme| %>
-      <div data-type='<%=theme.title%>' class="theme-card">
-
-          <div><%= theme.title %></div>
-          <div class="d-flex justify-content-between">
-          <% if theme.user.username.present?%>
-          <div>by <%= theme.user.username %></div>
-          <% else %>
-          <div> by <%= theme.user.email %></div>
-          <% end %>
-          <div><%= theme.date %></div>
-        </div>
-
+    <div data-type='<%=theme.title%>' class="theme-card">
+      <div><%= theme.title %></div>
+      <div class="d-flex justify-content-between">
+      <% if theme.user.username.present?%>
+      <div>by <%= theme.user.username %></div>
+      <% else %>
+      <div> by <%= theme.user.email %></div>
+      <% end %>
+      <div><%= theme.date %></div>
+      </div>
 
 
 
 
-        <div>
-          <%= theme.themeupvotes.count %>
-          <% if theme.get_themeupvote_of_user(current_user) %>
+
+      <div>
+        <%= theme.themeupvotes.count %>
+        <% if theme.get_themeupvote_of_user(current_user) %>
           <%= link_to themeupvote_path(theme.get_themeupvote_of_user(current_user)), method: :delete do %>
-          <i  id="heart-like" class="fas fa-heart"></i>
-            <% end %>
-
-          <% else %>
+            <i  id="heart-like" class="fas fa-heart"></i>
+          <% end %>
+        <% else %>
           <%= link_to theme_themeupvotes_path(theme), method: :post do %>
           <i id="heart-like" class="far fa-heart"></i>
-            <% end %>
           <% end %>
-
-        </div>
+        <% end %>
+      </div>
 
 
       <div class="d-flex justify-content-between">
@@ -124,11 +124,10 @@
 
 
 
-  <div class="container">
-    <div class="row">
-      <%= paginate @themes %>
-    </div>
+  
+  <div>
+    <%= paginate @themes %>
   </div>
-  </div>
+</div>
 </div>
 
