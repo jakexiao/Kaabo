@@ -16,29 +16,62 @@
           <%= link_to "Home", "/", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Information", "http://localhost:3000/#info", class: "nav-link" %>
+          <%= link_to "Information", "/#info", class: "nav-link" %>
         <li class="nav-item">
           <%= link_to "Forum", "/topics", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Search", "#", class: "nav-link" %>
+          <button type="button" id="master-search" class="btn nav-link">Search</button> 
         </li>
+        <div class="text-center" id="search-card" style="display: none">
+          <%# <div class="container"> %>
+          <%= form_tag searches_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], placeholder:"Search anything here" %>
+          <%= submit_tag 'search' %>
+          <% end %>
+          <%# </div> %>
+        </div>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag current_user.photo.key, width: 40, height: 40, crop: :pad, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "My Dashboard", "/dashboard", class: "dropdown-item" %>
+              <% if current_user.admin %>
+                <%= link_to "Manage Admin Access", "/users", class: "dropdown-item" %>
+              <% end %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
           <% else %>
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/barbsrebelo", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Dashboard", "/dashboard", class: "dropdown-item" %>
+              <% if current_user.admin %>
+                <%= link_to "Manage Admin Access", "/users", class: "dropdown-item" %>
+              <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
            <% end %>
         </li>
       <% else %>
+      <li class="nav-item active">
+          <%= link_to "Home", "/", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Information", "http://localhost:3000/#info", class: "nav-link" %>
+        <li class="nav-item">
+          <%= link_to "Forum", "/topics", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <button type="button" id="master-search" class="btn nav-link">Search</button> 
+        </li>
+        <div class="text-center" id="search-card" style="display: none">
+          <%# <div class="container"> %>
+          <%= form_tag searches_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], placeholder:"Search anything here" %>
+          <%= submit_tag 'search' %>
+          <% end %>
+          <%# </div> %>
+        </div>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>

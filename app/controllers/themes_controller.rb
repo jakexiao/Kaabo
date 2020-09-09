@@ -1,4 +1,6 @@
 class ThemesController < ApplicationController
+  before_action :authenticate_user!, only: [:new] 
+
   def new
       @topic = Topic.find(params[:topic_id])
       # @user = User.find(params[:user_id])
@@ -13,9 +15,9 @@ class ThemesController < ApplicationController
     @theme.user_id = current_user.id
     if @theme.save
       redirect_to topic_themes_path(@topic)
-    else 
+    else
       render :new
-    end 
+    end
   end
 
   def index
@@ -23,7 +25,7 @@ class ThemesController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @themes = @topic.themes
     if params[:reset]
-      session[:filter] = nil 
+      session[:filter] = nil
       session[:period] = nil
     end
     session[:filter] = params[:filter] if params[:filter]
@@ -49,7 +51,7 @@ class ThemesController < ApplicationController
         @themes = @topic.themes.where("themes.date >= ?", DateTime.now - 10.year)
         filter
       else
-        @themes = @themes.order(date: :desc)
+        @themes = @themes.order(created_at: :desc)
       end
     end
     @themes = @themes.page(params[:page]).per(10)
@@ -59,7 +61,7 @@ class ThemesController < ApplicationController
     @theme = Theme.find(params[:id])
     @comments = @theme.comments
     if params[:reset]
-      session[:filter] = nil 
+      session[:filter] = nil
       session[:period] = nil
     end
     session[:filter] = params[:filter] if params[:filter]
@@ -132,5 +134,5 @@ class ThemesController < ApplicationController
       .order('COUNT(commentupvotes.id) DESC')
     end
   end
-  
+
 end

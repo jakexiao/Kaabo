@@ -1,0 +1,17 @@
+<div class="form-inline d-flex" style="width:100%">
+  <%= form_tag users_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search', class: 'search-btn'%>
+  <% end %>
+</div>
+
+<% @users.each do |user| %>
+  <%= user.username %> 
+  <%= user.email %> 
+  <%= user.admin %>
+  <%= simple_form_for(user) do |f| %>
+      <%= f.input :admin %>
+      <%= f.submit %>
+  <% end %>
+<% end %>
+
+

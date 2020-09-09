@@ -18,8 +18,10 @@ puts "Creating user..."
 user1 = User.create!(
     username: "kaabo",
     email: "kaabo@kaabo.com",
-    password: "12345678"
+    password: "12345678",
+    admin: true
 )
+
 
 puts "Creating topic..."
 
@@ -55,13 +57,15 @@ count = 0
           content: Faker::Lorem.paragraph(sentence_count: 10),
           date: Faker::Date.between(from: 10.days.ago, to: Date.today),
           image_url: "https://source.unsplash.com/500x400/?#{topic.category}",
-          topic_id: topic.id)
+          topic_id: topic.id,
+          user_id: user1.id)
         article.save
     end
 
     10.times do
         theme = Theme.new(
         title: Faker::Lorem.question,
+        content: Faker::Quote.matz,
         date: Faker::Date.between(from: 10.days.ago, to: Date.today),
         topic_id: topic.id,
         user_id: user1.id)
@@ -70,25 +74,26 @@ count = 0
         puts "Creating 10 comments for #{theme.title}..."
 
         10.times do
-            comment = Comment.new(
+            comment = Comment.create!(
             content: Faker::Quote.matz,
             date: Faker::Date.between(from: 10.days.ago, to: Date.today),
+            user_id: user1.id,
             theme_id: theme.id)
-            comment.save
+            # comment.save
 
             5.times do
-                commentupvote = Commentupvote.new(
+                commentupvote = Commentupvote.create!(
                 user_id: user1.id,
                 comment_id: comment.id)
-                commentupvote.save
+               # commentupvote.save
             end
         end
 
         5.times do
-            themeupvote = Themeupvote.new(
+            themeupvote = Themeupvote.create(
             user_id: user1.id,
             theme_id: theme.id)
-            themeupvote.save
+            # themeupvote.save
         end
     end
 

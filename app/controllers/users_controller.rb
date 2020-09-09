@@ -1,4 +1,19 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  
+  def index
+    if params[:query]
+      sql_query = "username ILIKE :query OR email ILIKE :query"
+      @users = User.where(sql_query, query: "%#{params[:query]}%")
+    else 
+      if current_user.admin
+        @users = User.all 
+      else
+        redirect_to dashboard_path
+      end 
+    end 
+  end 
+
   def show
     @user = User.find(params[:id])
   end 
@@ -22,14 +37,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-
+    
+    if @user.update(user_params)
     redirect_to dashboard_path
+    else
+      render :edit
+    end
   end 
 
   private
 
     def user_params
-      params.require(:user).permit(:username, :password, :photo)
+      params.require(:user).permit(:username, :password, :photo, :admin)
     end
 end
