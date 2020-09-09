@@ -1,8 +1,13 @@
 .theme-card-show {
-  background: $yellow;
-  padding: 5px;
-  margin: 5px;
+  background: #F6F4E6;
+  // padding: 5px;
+  // margin: 5px;
   border-radius: 5px;
+  padding: 35px;
+  margin-top: 15px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #FDDB3A;
 }
 
 .theme-card-show-main {
@@ -18,3 +23,19 @@
 }
 
 
+.new-card-show {
+  background: #F6F4E6;
+  // padding: 5px;
+  // margin: 5px;
+  border-radius: 5px;
+  padding: 35px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #FDDB3A;
+}
+
+.theme-cat {
+  margin: auto;
+}
