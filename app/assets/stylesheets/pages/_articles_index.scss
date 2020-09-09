@@ -26,8 +26,9 @@
 
 .articles {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 50px;
+  padding: 0 20px;
   a {
     text-decoration: none;
   }
@@ -43,6 +44,7 @@
 
 h4 {
   color: #52575d;
+  font-size: 17px;
 }
 
 p {

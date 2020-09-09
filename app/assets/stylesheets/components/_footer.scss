@@ -6,22 +6,28 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    height: 150px;
+    // height: 150px;
     padding: 0px 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-
+    padding-top: 10px;
+    padding-bottom: 10px;
+    // position: sticky;
+    // z-index: 1;
+    p {
+      color: #FDDB3A;
+    }
   }
+
   .footer-links {
     display: flex;
     align-items: center;
     color: #FDDB3A;
-    margin-bottom:20px;
+    margin-bottom:10px;
+    margin-top:10px;
   }
+
   .footer-links a {
     color: #FDDB3A;
     opacity: 0,5;
-
     text-decoration: none;
     font-size: 24px;
     padding: 0px 10px;
