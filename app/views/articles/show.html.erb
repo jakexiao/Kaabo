@@ -1,29 +1,31 @@
- <% if current_user.admin %>
-  <div class="container_show">
-    <div id="content-wrap">
-      <h1><%= @article.title %></h1>
-      <h4><%= @article.date %></h4>
-      <%= image_tag @article.image_url, size: "350x350"%>
-      <p><%= @article.content %></p>
-      <%= social_share_button_tag(@article.title) %>
-      <div class="btn-flat-inv"> Go back to <%= link_to @article.topic.category, topic_articles_path %> </div>
-      <%= link_to "Edit", edit_topic_article_path(@article.topic, @article) %>
-      <%= link_to "Delete",
-            topic_article_path(@article.topic, @article),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-    </div>
-  </div>
-<% else %>
-  <div class="container_show">
-    <div id="content-wrap">
-      <h1><%= @article.title %></h1>
-      <h4><%= @article.date %></h4>
-      <p><%= @article.content %></p>
-      <%= social_share_button_tag(@article.title) %>
-      <div class="btn-flat-inv"> Go back to <%= link_to @article.topic.category, topic_articles_path %> </div>
-    </div>
-  </div>
-<% end %>
+<div class="container .col-xs-">
+  <% if current_user.admin %>
+    <div class="container_show">
+      <div id="content-wrap">
+        <h2 class="article-title"><%= @article.title %></h2>
+        <h6><%= @article.date %></h6>
+        <%= image_tag @article.image_url, size: "350x350"%>
+        <p class="article-content"><%= @article.content %></p>
+        <%= social_share_button_tag(@article.title) %>
+        <div class="btn-flat-inv"> Go back to <%= link_to @article.topic.category, topic_articles_path %> </div>
+          <div class="d-flex justify-content-left">
+            <%= link_to "Edit", edit_topic_article_path(@article.topic, @article) %>
+            <%= link_to "Delete", topic_article_path(@article.topic, @article), class: "ml-3",
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+          </div>
 
-
+      </div>
+    </div>
+  <% else %>
+    <div class="container_show">
+      <div id="content-wrap">
+        <h1><%= @article.title %></h1>
+        <h4><%= @article.date %></h4>
+        <p><%= @article.content %></p>
+        <%= social_share_button_tag(@article.title) %>
+        <div class="btn-flat-inv"> Go back to <%= link_to @article.topic.category, topic_articles_path %> </div>
+      </div>
+    </div>
+  <% end %>
+</div>

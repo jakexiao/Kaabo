@@ -6,12 +6,11 @@
   font-size: 20px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
 .index-page-container {
-  margin-top: 100px;
+  margin-top: 40px;
   margin-bottom: 30px;
   width: 100%;
   margin-right: auto;
@@ -39,6 +38,15 @@
   margin: auto auto auto 0;
 }
 
+#article-title {
+  margin-left: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.article-link {
+  margin-left: 50px;
+  margin-top: -16px;
+}
 
 h4 {
   color: #52575d;
@@ -51,7 +59,13 @@ p {
   font-size: initial;
 }
 
+a {
+  color: #52575d;
+}
 
+.form-inline {
+  margin-left: 50px;
+}
 
 
 // Smallest device
