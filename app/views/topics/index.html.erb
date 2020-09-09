@@ -13,7 +13,7 @@
            <%= link_to topic_themes_path(topic) do %>
 
                 <div class="card">
-                  <% topicname = topic.category %>
+                  <p><% topicname = topic.category%></p>
                   <%= topic.category %>
                   <%= image_tag "icons/icon#{topicname}.svg", width: 100, class: "icons" %>
                 </div>

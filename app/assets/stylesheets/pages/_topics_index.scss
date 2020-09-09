@@ -9,14 +9,29 @@ body {
 
 .forumtitle {
   text-align: center;
-  margin-top:50px;
+  margin-top: 50px;
   font-weight: bold;
-
-
 }
 
 @media (max-width: 768px) {
  .logo img {
    max-width: 150px;
  }
+}
+
+.card img {
+  height: 44px;
+}
+
+.card .icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0 !important;
+  margin-bottom: 10px;
+}
+
+.card {
+  font-weight: normal !important;
+  font-size: 18px;
 }
