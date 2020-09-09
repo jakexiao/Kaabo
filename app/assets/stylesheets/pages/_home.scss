@@ -9,7 +9,7 @@
 .title {
   background-color: #FDDB3A;
   padding: 10px;
-  margin-left: 50px;
+  margin-left: 20px;
   margin-bottom: 25px;
   margin-top: 20px;
   border-radius: 3px;
@@ -19,7 +19,7 @@ p {
   text-align: left;
   margin-top: auto;
   margin-bottom: 0rem;
-  margin-left: 56px;
+  margin-left: 30px;
   margin-right: 54px;
 }
 
@@ -27,6 +27,8 @@ p {
   background-color: #F6F4E6;
   width:100%;
   text-align: center;
+  width: 100%;
+  padding: 0%;
 }
 
 .cards {
@@ -35,6 +37,11 @@ p {
   margin-bottom: 25px;
   margin-top: 20px;
   margin-right: 40px;
+}
+
+.btn {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .btn btn-warning {
@@ -62,15 +69,23 @@ p {
   top: 20px;
 }
 
-h5 {
+h4 {
   color: #FDDB3A;
   margin-left: 58px;
 }
 
 h4 {
-  margin-left: 55px;
 }
 
+.highlights {
+  margin-left: 20px;
+}
+
+.forum {
+  margin-left: 0px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
 
 
 
