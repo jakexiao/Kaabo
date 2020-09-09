@@ -18,7 +18,10 @@
             </div>
 
            <div class="container">
-             <div class="d-inline-flex p-2" id="info"><h4 class="title"><strong>Useful Information</strong></h4></div>
+
+             
+           <div class="d-inline-flex p-2" id="info"><h4 class="title"><strong>Useful Information</strong></h4></div>
+
       <div class="row">
 
           <% @topics.each do |topic| %>
@@ -31,7 +34,6 @@
                     <div class="links">
                       <p><%= link_to "#{topic.category}", topic_articles_path(topic) %></p>
                     </div>
-
 
                   </div>
                 <% end %>
