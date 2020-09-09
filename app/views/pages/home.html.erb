@@ -16,44 +16,38 @@
           <p>Visit the Forum or join the Community. Search and share information, find support and make friends!</p>
           <%= link_to "Enter", topics_path, class: "btn btn-warning btn-danger-text" %>
       </div>
-
-
-             <div class="d-inline-flex p-2" id="info"><h4 class="title"><strong>Useful Information</strong></h4>
-             </div>
+      <div class="d-inline-flex p-2" id="info"><h4 class="title"><strong>Useful Information</strong></h4>
+      </div>
     <div class="container">
       <div class="row">
-
           <% @topics.each do |topic| %>
             <div class="col-sm-4">
-                  <%= link_to topic_articles_path(topic) do %>
+              <%= link_to topic_articles_path(topic) do %>
                 <div class="card">
-
-                    <% topicname = topic.category %>
-                    <%= image_tag "icons/icon#{topicname}.svg"%>
-                    <div class="links">
-                      <p><%= link_to "#{topic.category}", topic_articles_path(topic) %></p>
-                    </div>
-
+                  <% topicname = topic.category %>
+                  <%= image_tag "icons/icon#{topicname}.svg"%>
+                  <div class="links">
+                    <p><%= topic.category %></p>
                   </div>
-                <% end %>
-           </div>
+                </div>
+              <% end %>
+            </div>
           <% end %>
-
       </div>
     </div>
-      <div class="d-inline-flex p-2"><h4 class="title"><strong>Highlights</strong></h4></div>
-      <div class="container">
-        <h4 class="highlights"><strong>Education</strong></h4>
-        <h5 class="highlights">SCOLARSHIPS 20/21</h5>
-        <p class="highlights">Scholar year is about to start. Imigrants can also apply to scholarship and access other social support services.</p>
-      </div>
-      <div class="container">
-        <h4 class="highlights"><strong>Documentation</strong></h4>
+    <div class="d-inline-flex p-2"><h4 class="title"><strong>Highlights</strong></h4></div>
+    <div class="container">
+      <h4 class="highlights"><strong>Education</strong></h4>
+      <h5 class="highlights">SCOLARSHIPS 20/21</h5>
+      <p class="highlights">Scholar year is about to start. Imigrants can also apply to scholarship and access other social support services.</p>
+    </div>
+    <div class="container">
+      <h4 class="highlights"><strong>Documentation</strong></h4>
       <h5 class="highlights">RESIDENCE</h5>
       <P class="highlights">Due to Covid-19 social restrictions, applying to residence authorization became less beaurocratic. Check all the new regulations.</P>
-      </div>
+    </div>
 
- 
+
 
 
 
