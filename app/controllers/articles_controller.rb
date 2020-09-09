@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.user_id = current_user.id
     if @article.update!(article_params)
-      redirect_to topic_article_path(@article)
+      redirect_to topic_article_path
     else
       render :edit
     end
