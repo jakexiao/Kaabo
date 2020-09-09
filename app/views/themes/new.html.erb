@@ -2,6 +2,7 @@
   <div class="theme_new">
       <%= simple_form_for([@topic, @theme]) do |f| %>
       <%= f.input :title %>
+      <%= f.input :content %>
       <%= f.input :date, :as => :hidden, :input_html => { :value => Time.now } %>
       <%= f.submit %>
     <% end %>

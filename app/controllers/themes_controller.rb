@@ -112,7 +112,7 @@ class ThemesController < ApplicationController
   private
 
   def theme_params
-    params.require(:theme).permit(:title, :date)
+    params.require(:theme).permit(:title, :date, :content)
   end
 
   def filter
