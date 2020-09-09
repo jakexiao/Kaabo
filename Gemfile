@@ -10,6 +10,7 @@ gem 'simple_form'
 gem 'faker'
 # Search gem
 gem 'pg_search', '~> 2.3.0'
+gem 'turbolinks_render'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
