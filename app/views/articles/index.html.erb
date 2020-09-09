@@ -1,14 +1,14 @@
 
-<div class="index-page-container">
-<h1><%= @topic.category %></h1>
+<div class="index-page-container .col-xs-">
+<h2 id="article-title"><%= @topic.category %></h2>
 
    <div class="form-inline d-flex" style="width:100%">
         <%= form_tag topic_articles_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search', class: 'search-btn'%>
+        <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search'%>
         <% end %>
-   </div>
+   </div> </br>
 
-  <%= link_to "Create a new article", new_topic_article_path %>
+  <%= link_to "Create a new article", new_topic_article_path, class: "article-link"%>
 
 
   <div class="index-page-container col-10">
@@ -18,9 +18,9 @@
           <div class="cards-article row">
 
                 <% if article.image_url.nil? %>
-                  <div class="card-category col-6" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= 'https://source.unsplash.com/500x400/?#{article.topic.category}' %>)"></div>
+                  <div class="card-category col-6" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2), url(<%= 'https://source.unsplash.com/500x400/?#{article.topic.category}' %>)"></div>
                 <% else %>
-                  <div class="card-category col-6" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url_for (article.image_url) %>)"></div>
+                  <div class="card-category col-6" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= url_for (article.image_url) %>)"></div>
                 <% end %>
               <div class="card-info col-4">
                 <h4 class="m-0 p-1"><%= article.title %></h4>
