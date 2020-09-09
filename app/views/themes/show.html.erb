@@ -32,16 +32,18 @@
  <div class="btn-blocs">
     <div class="d-flex justify-content-between">
       <div class="row">
-     <%= link_to "Show all threads", topic_themes_path(reset: true), class: "btn btn-outline-secondary" %>
-     <%= link_to "Most liked", topic_themes_path(filter: 'likes'), class: "btn btn-outline-secondary" %>
-     <%= link_to "Most commented", topic_themes_path(filter: 'comments'), class: "btn btn-outline-secondary" %>
-     <%= link_to "Today", topic_themes_path(period: 'today'), class: "btn btn-outline-secondary" %>
-     <%= link_to "This week", topic_themes_path(period: 'week'), class: "btn btn-outline-secondary" %>
-     <%= link_to "This month", topic_themes_path(period: 'month'), class: "btn btn-outline-secondary"%>
-     <%= link_to "This year", topic_themes_path(period: 'year'), class: "btn btn-outline-secondary" %>
-    <!--  <%= link_to "All time", topic_themes_path(period: 'all'), class: "btn btn-outline-secondary" %> -->
+     <%= link_to "Show all comments", topic_theme_path(reset: true), class: "btn btn-outline-secondary" %>
+     <%= link_to "Most liked", topic_theme_path(filter: 'likes'), class: "btn btn-outline-secondary" %>
+     <%= link_to "Today", topic_theme_path(period: 'today'), class: "btn btn-outline-secondary" %>
+     <%= link_to "This week", topic_theme_path(period: 'week'), class: "btn btn-outline-secondary" %>
+     <%= link_to "This month", topic_theme_path(period: 'month'), class: "btn btn-outline-secondary"%>
+     <%= link_to "This year", topic_theme_path(period: 'year'), class: "btn btn-outline-secondary" %>
+    <!--  <%= link_to "All time", topic_theme_path(period: 'all'), class: "btn btn-outline-secondary" %> -->
      </div>
     </div>
+    <% if session[:filter] || session[:period] %>
+      <div> Filters selected: <%= session[:filter] %> <%= session[:period] %> </div>
+    <% end %>
  </div>
 
 

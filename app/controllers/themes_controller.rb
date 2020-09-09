@@ -51,7 +51,7 @@ class ThemesController < ApplicationController
         @themes = @topic.themes.where("themes.date >= ?", DateTime.now - 10.year)
         filter
       else
-        @themes = @themes.order(created_at: :desc)
+        @themes = @themes.order(date: :desc)
       end
     end
     @themes = @themes.page(params[:page]).per(10)
