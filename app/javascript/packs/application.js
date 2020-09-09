@@ -28,10 +28,12 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { type_filter } from "../components/filter";
 import { masterSearch } from "../components/master_search";
+import { threadFilter } from "../components/thread_filter";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   type_filter();
   masterSearch();
+  threadFilter();
   // initSelect2();
 });
