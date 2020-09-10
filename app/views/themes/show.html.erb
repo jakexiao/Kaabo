@@ -81,9 +81,9 @@
   <div class="btn-flat-inv" id="link-color-size"> << back to <%= link_to @theme.topic.category, topic_themes_path %> </div>
 </div>
 
-<div class="social-share-button">
-  <div class="fb-share-button" data-href="http://kaabo.network/topics/#{@theme.topic_id}/articles/#{@article.id}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkaabo.network%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
-</div>
+  <button type="button" class="btn btn-sm btn-fb" id="facebook-button"><i class="fab fa-facebook-f pr-1"></i><a href="https://www.facebook.com/sharer/sharer.php?u=http://kaabo.network/topics/#{@theme.topic_id}/articles/#{@article.id}" target="_blank">
+    Share on Facebook</a>
+  </button>
 
 
 
