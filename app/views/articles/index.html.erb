@@ -2,12 +2,12 @@
 <div class="index-page-container .col-xs-">
 <h2 id="article-title"><%= @topic.category %></h2>
 
-   <div class="form-inline d-flex" style="width:100%">
+   <div class="form-inline d-flex ml-4" style="width:100%">
         <%= form_tag topic_articles_path, method: :get do %>
         <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search'%>
         <% end %>
    </div> </br>
-  
+
   <% if !current_user.nil? %>
   <%= link_to "Create a new article", new_topic_article_path, class: "article-link"%>
   <% end %>
@@ -24,8 +24,11 @@
                 <% else %>
                   <div class="card-category col-6" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= url_for (article.image_url) %>)"></div>
                 <% end %>
-              <div class="card-info col-4">
-                <h4 class="m-0 p-1"><%= article.title %></h4>
+              <div class="card-info col-6">
+                <span class="d-inline-block text-truncate" style="max-width: 150px;">
+                  Praeterea iter est quasdam res quas ex communi.
+                </span>
+                <h4 class=" row m-0 p-1"><%= article.title %></h4>
                 <p class="m-0 p-1"><%= article.date %></p>
               </div>
             </div>
