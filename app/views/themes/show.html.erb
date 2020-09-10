@@ -2,13 +2,17 @@
   <div class="container">
     <div class="form d-flex">
       <div class="d-flex justify-content-between input-master-search ">
-        <div>
-          <%= form_tag topic_theme_path, method: :get do %> 
-        </div>
-        <div class="search-box"> <%= text_field_tag :query, params[:query], placeholder: "keyword", class: 'search-input pr-0 mr-0', style: "width:60%"%>
-          <%= submit_tag 'search', class: 'search-btn'%> 
-        </div>
+
+        <div class="text-center" id="search-card">
+          <%# <div class="container"> %>
+          <%= form_tag searches_path, method: :get, class: 'd-flex' do %>
+            <%= text_field_tag :query, params[:query], placeholder:"Search here", class: 'search-input', style: "background-color:#F6F4E6" %><%= button_tag type: 'submit', id: "search-glass", class: 'btn btn-transparent', style: "background-color:#F6F4E6" do %><i class="fas fa-search" style="align-self: center" aria-hidden="true"></i><% end %>
           <% end %>
+          <%# </div> %>
+
+
+        </div>
+
       </div>
     </div>
     <div class="new-card-show">
@@ -31,14 +35,14 @@
     </div>
 
   <div class="d-flex justify-content-between">
-    <div class="link-deco"> 
+    <div class="link-deco">
       <strong>Leave a comment</strong> <%= link_to new_theme_comment_path(@theme) do %>
       <i class="fas fa-plus-circle"></i>
       <% end %>
     </div>
   </div>
   <div class="d-flex justify-content-between">
-    <div class="btn-flat-inv" id="link-color-size"> << back to <%= link_to @theme.topic.category, topic_themes_path %> </div>
+    <div class="btn btn-warning btn-danger-text shadow-sm" id="link-color-size"> << back to <%= link_to @theme.topic.category, topic_themes_path %> </div>
   </div>
   <button type="button" class="btn btn-sm btn-fb" id="facebook-button"><i class="fab fa-facebook-f pr-1"></i><a href="https://www.facebook.com/sharer/sharer.php?u=http://kaabo.network/topics/#{@theme.topic_id}/articles/#{@article.id}" target="_blank">
     Share on Facebook</a>
