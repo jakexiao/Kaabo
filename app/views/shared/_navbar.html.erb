@@ -64,14 +64,22 @@
         <li class="nav-item">
           <button type="button" id="master-search" class="btn nav-link">Search</button>
         </li>
-        <div class="text-center" id="search-card" style="display: none">
+
+
+
+        <div class="text" id="search-card" style="display: flex">
+          <div class="d-flex justify-content-between input-master-search">
           <%# <div class="container"> %>
-          <%= form_tag searches_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], placeholder:"Search anything here" %>
-          <%= submit_tag 'search' %>
+          <div> <%= form_tag searches_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], placeholder:"Search" %> </div>
+          <div> <%= submit_tag "go!" %>
           <% end %>
           <%# </div> %>
+          </div>
+          </div>
         </div>
+
+
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
