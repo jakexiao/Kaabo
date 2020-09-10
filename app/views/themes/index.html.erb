@@ -110,7 +110,12 @@
       <br>
       <div class="d-flex justify-content-between">
       <% if theme.user.username.present?%>
-      <div><%= cl_image_tag theme.user.photo.key, width: 40, height: 40, crop: :pad, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> <% "#{ }"%> by <%= theme.user.username %> </div>
+      <div> 
+        <% if theme.user.photo.attached? %>
+        <%= cl_image_tag theme.user.photo.key, width: 40, height: 40, crop: :pad, class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+        by <%= theme.user.username %> 
+      </div>
       <% else %>
       <div> by <%= theme.user.email %> </div>
       <% end %>
