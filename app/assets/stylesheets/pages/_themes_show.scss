@@ -1,5 +1,5 @@
 .theme-card-show {
-  background: #F6F4E6;
+  background: #f6f4e6;
   // padding: 5px;
   // margin: 5px;
   border-radius: 5px;
@@ -7,11 +7,11 @@
   margin-top: 15px;
   border-radius: 5px;
   border-style: solid;
-  border-color: #FDDB3A;
+  border-color: #fddb3a;
 }
 
 .theme-card-show-main {
-  background: #F6F4E6;
+  background: #f6f4e6;
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
@@ -19,12 +19,11 @@
 
 #link-color-size a {
   text-decoration: none;
-  color: #52575D;
+  color: #52575d;
 }
 
-
 .new-card-show {
-  background: #F6F4E6;
+  background: #f6f4e6;
   // padding: 5px;
   // margin: 5px;
   border-radius: 5px;
@@ -33,9 +32,13 @@
   margin-bottom: 30px;
   border-radius: 5px;
   border-style: solid;
-  border-color: #FDDB3A;
+  border-color: #fddb3a;
 }
 
 .theme-cat {
   margin: auto;
+}
+
+.dropdown-menu {
+  min-width: 1rem;
 }

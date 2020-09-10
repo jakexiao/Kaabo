@@ -22,12 +22,12 @@
 
 
     <div class="btn-blocs">
-      <div>filter by: </div>
+      <div>Filter by: </div>
       <div class="d-flex justify-content-between">
         <div class="row">
             <%= link_to "Show all threads", topic_themes_path(reset: true),method: :get, class: "btn btn-outline-secondary"%>
-            <%= link_to "Most liked", topic_themes_path(filter: 'likes'),method: :get, id: 'likes', class: "btn btn-outline-secondary"%>
-            <%= link_to "Most commented", topic_themes_path(filter: 'comments'),method: :get, id: 'comments', class: "btn btn-outline-secondary"%>
+            <%= link_to "Top liked", topic_themes_path(filter: 'Likes'),method: :get, id: 'likes', class: "btn btn-outline-secondary"%>
+            <%= link_to "Top commented", topic_themes_path(filter: 'Comments'),method: :get, id: 'comments', class: "btn btn-outline-secondary"%>
             <%#= link_to "Today", topic_themes_path(period: 'today'),method: :get, class: "btn btn-outline-secondary"%>
             <%#= link_to "This week", topic_themes_path(period: 'week'),method: :get, class: "btn btn-outline-secondary"%>
             <%#= link_to "This month", topic_themes_path(period: 'month'),method: :get, class: "btn btn-outline-secondary"%>
@@ -41,28 +41,28 @@
           </a>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#"> <%= link_to "Today", topic_themes_path(period: 'today'),method: :get %> </a>
-            <a class="dropdown-item" href="#"> <%= link_to "This week", topic_themes_path(period: 'week'),method: :get %> </a>
-            <a class="dropdown-item" href="#"> <%= link_to "This month", topic_themes_path(period: 'month'),method: :get %> </a>
-            <a class="dropdown-item" href="#"> <%= link_to "This year", topic_themes_path(period: 'year'),method: :get %> </a>
+            <a class="dropdown-item" href="<%= topic_themes_url(period: 'today') %>"> Today</a>
+            <a class="dropdown-item" href="<%= topic_themes_url(period: 'This week') %>"> This week  </a>
+            <a class="dropdown-item" href="<%= topic_themes_url(period: 'This month') %>"> This month </a>
+            <a class="dropdown-item" href="<%= topic_themes_url(period: 'This year') %>"> This year </a>
           </div>
-       </div>
+        </div>
 
       </div>
-
+      <br>
       <% if session[:filter] || session[:period] %>
-       <div> Filters selected: <%= session[:filter] %> <%= session[:period] %> </div>
+       <div> Filters selected: <strong><%= session[:filter] %> <%= session[:period] %></strong> </div>
       <% end %>
     </div>
 
-     <div class="link-deco"> Create new thread <%= link_to new_topic_theme_path do %>
+     <div class="link-deco"> <strong>Create new thread</strong> <%= link_to new_topic_theme_path do %>
       <i class="fas fa-plus-circle"></i>
 
       <% end %>
        </div>
 
   <div class="d-flex justify-content-between">
-    <div class="btn-flat-inv" id="link-color"> <%= link_to " << back to Forum", topics_path %> </div>
+    <div class="btn-flat-inv" id="link-color"> << back to <%= link_to @topic.category, topics_path %> </div>
   </div>
 
   <%# <div class="filters">
