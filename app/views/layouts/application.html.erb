@@ -22,12 +22,9 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= favicon_link_tag 'favicon-32x32.png', rel: 'icon', type: 'image/png'%>
+    <%= favicon_link_tag 'favicon-32x32.png', rel: 'favicon', type: 'image/png'%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-responsive.css">
-
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -46,6 +43,9 @@
   </div>
 
    <div> <%= render 'shared/footer' %></div>
+
+   <div id="fb-root"></div>
+   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v8.0" nonce="HN1a7Gvg"></script>
   </body>
 
 

@@ -23,8 +23,10 @@
         <h1><%= @article.title %></h1>
         <h4><%= @article.date %></h4>
         <p><%= @article.content %></p>
-        <%= social_share_button_tag(@article.title) %>
-        <div class="btn-flat-inv inline shadow-sm "><%= link_to "Go back", topic_articles_path %> </div>
+        <div class="social-share-button">
+        <div class="fb-share-button" data-href="http://kaabo.network/topics/#{@article.topic_id}/articles/#{@article.id}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkaabo.network%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
+        </div>
+        <div class="btn-flat-inv"> Go back to <%= link_to @article.topic.category, topic_articles_path %> </div>
       </div>
     </div>
   <% end %>

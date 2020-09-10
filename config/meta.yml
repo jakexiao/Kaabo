@@ -1,5 +1,5 @@
 meta_product_name: "Kaabo"
 meta_title: "Kaabo - home of immigrants in Portugal"
 meta_description: "Kaabo provides you clear and concrete official and community information regarding basic rights. Enter the site and start your journey."
-meta_image: "connect.png" # should exist in `app/assets/images/`
+meta_image: "connection.png" # should exist in `app/assets/images/`
 twitter_account: "@jakexiao" # required for Twitter Cards
