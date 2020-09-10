@@ -72,7 +72,9 @@
 <div class="link-deco"> <%#= link_to "show all", topic_theme_path(reset: true) %> </div>
 </div>
 <br>
-<div> <%= social_share_button_tag(@theme.title) %> </div>
+<div class="social-share-button">
+  <div class="fb-share-button" data-href="http://kaabo.network/topics/#{@theme.topic_id}/articles/#{@article.id}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkaabo.network%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
+</div>
 
 
 
