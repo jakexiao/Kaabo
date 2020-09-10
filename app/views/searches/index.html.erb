@@ -1,20 +1,20 @@
 <div class="container">
-  <h4 class="title">Articles</h4>
+  <h4 class="title" id="title-results">Articles</h4>
   <div class="card-wraper">
-    <div class="card-body">
+    <div class="card-body" id="search-results">
       <% @results.each do |result| %>
         <% if result.searchable_type == "Article" %>
-          <p><%= link_to result.searchable.title, topic_article_path(find_article_topic(result.searchable_id), result.searchable_id) %></p>
+          <a><%= link_to result.searchable.title, topic_article_path(find_article_topic(result.searchable_id), result.searchable_id) %></p>
         <% end %>
       <% end %>
     </div>
   </div>
-  <h4 class="title"> Threads</h4>
-  <div class="card-wraper">
-    <div class="card-body">
+  <h4 class="title" id="title-results"> Threads</h4>
+  <div class="card-wraper" id="search-results-card">
+    <div class="card-body" id="search-results">
       <% @results.each do |result| %>
         <% if result.searchable_type == "Theme" %>
-          <p><%= link_to result.searchable.title, topic_theme_path(find_theme_topic(result.searchable_id), result.searchable_id) %></p>
+          <a><%= link_to result.searchable.title, topic_theme_path(find_theme_topic(result.searchable_id), result.searchable_id) %></p>
         <% end %>
       <% end %>
     </div>

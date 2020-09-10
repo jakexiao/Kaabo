@@ -22,6 +22,11 @@
   color: #52575d;
 }
 
+#link-color-sizee a {
+  text-decoration: none;
+  color: #fddb3a;
+}
+
 .new-card-show {
   background: #f6f4e6;
   // padding: 5px;
@@ -41,4 +46,11 @@
 
 .dropdown-menu {
   min-width: 1rem;
+}
+
+.btn-flat-inv {
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 20px;
 }
