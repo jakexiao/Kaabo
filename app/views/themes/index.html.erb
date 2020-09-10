@@ -47,6 +47,10 @@
 
   <div class="link-deco"> <%= link_to "Create a new thread ", new_topic_theme_path %> </div>
 
+  <div class="d-flex justify-content-between">
+    <div class="btn-flat-inv" id="link-color"> <%= link_to " << back to Forum", topics_path %> </div>
+  </div>
+
   <%# <div class="filters">
       <button type="button" id="type-filter" class="btn-flat">What's hot?</button>
   </div> %>
@@ -90,19 +94,17 @@
 
     <div data-type='<%=theme.title%>' class="theme-card">
       <div><%= theme.title %></div>
+      <br>
       <div class="d-flex justify-content-between">
       <% if theme.user.username.present?%>
-      <div>by <%= theme.user.username %></div>
+      <div><%= cl_image_tag theme.user.photo.key, width: 40, height: 40, crop: :pad, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> <% "#{ }"%> by <%= theme.user.username %> </div>
       <% else %>
-      <div> by <%= theme.user.email %></div>
+      <div> by <%= theme.user.email %> </div>
       <% end %>
       <div><%= theme.date %></div>
       </div>
-
-
-
-
-
+      
+      <br>
 
       <div>
         <%= theme.themeupvotes.count %>
@@ -139,7 +141,7 @@
   </div>
 
   <div class="d-flex justify-content-between">
-    <div class="btn-flat-inv" id="link-color"> <%= link_to " << ", topics_path %> 
+    <div class="btn-flat-inv" id="link-color"> <%= link_to " << back to Forum", topics_path %> </div>
   </div>
 
 

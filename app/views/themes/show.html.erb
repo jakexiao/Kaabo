@@ -1,7 +1,5 @@
 <div class="container">
 
-
-
 <div class="form-inline d-flex" style="width:100%">
     <div><%= form_tag topic_theme_path, method: :get do %> </div>
       <div class="search-box"> <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:60%"%>
@@ -65,7 +63,12 @@
 <div class="link-deco"> <%= link_to "leave a comment", new_theme_comment_path(@theme) %> </div>
 <div class="link-deco"> <%#= link_to "show all", topic_theme_path(reset: true) %> </div>
 </div>
-<br>
+
+
+<div class="d-flex justify-content-between">
+  <div class="btn-flat-inv" id="link-color-size"> << back to <%= link_to @theme.topic.category, topic_themes_path %> </div>
+</div>
+
 <div> <%= social_share_button_tag(@theme.title) %> </div>
 
 
@@ -75,10 +78,10 @@
       <div> <%= comment.content%> </div>
       <br>
       <div class="d-flex justify-content-between">
-    <div>by <%= comment.user.username %></div>
+    <div><%= cl_image_tag comment.user.photo.key, width: 40, height: 40, crop: :pad, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> <% "#{ }"%> by <%= comment.user.username %></div>
     <div><%= comment.date %></div>
      </div>
-
+    <br>
 
 <div>
     <%= comment.commentupvotes.count %>
@@ -101,10 +104,6 @@
 
 <% end %>
 
-
-<div class="d-flex justify-content-between">
-<div class="btn-flat-inv" id="link-color-size"> back to <%= link_to @theme.topic.category, topic_themes_path %> </div>
-</div>
 
 <div class="container">
   <div class="row">
