@@ -10,6 +10,17 @@
 // Social-share button
 @import "social-share-button";
 
+
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+
+
+.main-container {
+  min-height: calc(100vh - 228px);
+}
+
 $size: 24px;
 
 .social-share-button {
@@ -19,7 +30,3 @@ $size: 24px;
     width: $size;
   }
 }
-
-// Your CSS partials
-@import "components/index";
-@import "pages/index";
