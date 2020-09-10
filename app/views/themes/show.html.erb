@@ -50,11 +50,57 @@
     <% if session[:filter] || session[:period] %>
       <div> Filters selected: <strong><%= session[:filter] %> <%= session[:period] %> </strong></div>
     <% end %>
-  </div>
-  <div class="d-flex justify-content-between">
-    <div class="link-deco">
-      <strong>Leave a comment</strong> <%= link_to new_theme_comment_path(@theme) do %>
-      <i class="fas fa-plus-circle"></i>
+
+ </div>
+
+
+ <div class="d-flex justify-content-between">
+<div class="link-deco"> <strong>Leave a comment</strong> <%= link_to new_theme_comment_path(@theme) do %>
+<i class="fas fa-plus-circle"></i>
+<% end %>
+</div>
+<div class="link-deco"> <%#= link_to "show all", topic_theme_path(reset: true) %> </div>
+</div>
+
+
+
+<div class="d-flex justify-content-between">
+  <div class="btn-flat" id="link-color-sizee"> << back to <%= link_to @theme.topic.category, topic_themes_path %> </div>
+</div>
+
+<div class="social-share-button">
+  <div class="fb-share-button" data-href="http://kaabo.network/topics/#{@theme.topic_id}/articles/#{@article.id}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkaabo.network%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
+</div>
+
+
+
+
+<% @comments.each do |comment| %>
+    <div data-type= '<%= comment.content%>' class="theme-card-show">
+      <div> <%= comment.content%> </div>
+      <br>
+      <div class="d-flex justify-content-between">
+    <div>
+    <% if comment.user.photo.attached? %>
+    <%= cl_image_tag comment.user.photo.key, width: 40, height: 40, crop: :pad, class: "avatar dropdown-toggle", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>  
+    <% end %>
+    by <%= comment.user.username %>
+    </div>
+    <div><%= comment.date %></div>
+     </div>
+    <br>
+
+<div>
+    <%= comment.commentupvotes.count %>
+    <% if comment.get_commentupvote_of_user(current_user) %>
+      <%= link_to commentupvote_path(comment.get_commentupvote_of_user(current_user)), method: :delete do  %>
+     <i  id="heart-like" class="fas fa-heart"></i>
+    <% end %>
+
+    <% else %>
+      <%= link_to comment_commentupvotes_path(comment), method: :post  do %>
+      <i id="heart-like" class="far fa-heart"></i>
+
       <% end %>
     </div>
   </div>

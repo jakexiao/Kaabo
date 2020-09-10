@@ -15,45 +15,8 @@
         </div>
 
 
-
-
-
-
-
-
-
-    <div class="btn-blocs">
-      <div>Filter by: </div>
-      <div class="d-flex justify-content-between">
-        <div class="row">
-            <%= link_to "Show all threads", topic_themes_path(reset: true),method: :get, class: "btn btn-outline-secondary"%>
-            <%= link_to "Top liked", topic_themes_path(filter: 'Likes'),method: :get, id: 'likes', class: "btn btn-outline-secondary"%>
-            <%= link_to "Top commented", topic_themes_path(filter: 'Comments'),method: :get, id: 'comments', class: "btn btn-outline-secondary"%>
-            <%#= link_to "Today", topic_themes_path(period: 'today'),method: :get, class: "btn btn-outline-secondary"%>
-            <%#= link_to "This week", topic_themes_path(period: 'week'),method: :get, class: "btn btn-outline-secondary"%>
-            <%#= link_to "This month", topic_themes_path(period: 'month'),method: :get, class: "btn btn-outline-secondary"%>
-            <%#= link_to "This year", topic_themes_path(period: 'year'),method: :get, class: "btn btn-outline-secondary"%>
-            <%#= link_to "All time", topic_themes_path(period: 'all'), class: "btn btn-outline-secondary"%>
-        </div>
-
-        <div class="dropdown">
-          <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Time
-          </a>
-
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="<%= topic_themes_url(period: 'today') %>"> Today</a>
-            <a class="dropdown-item" href="<%= topic_themes_url(period: 'This week') %>"> This week  </a>
-            <a class="dropdown-item" href="<%= topic_themes_url(period: 'This month') %>"> This month </a>
-            <a class="dropdown-item" href="<%= topic_themes_url(period: 'This year') %>"> This year </a>
-          </div>
-        </div>
-
-      </div>
-      <br>
-      <% if session[:filter] || session[:period] %>
-       <div> Filters selected: <strong><%= session[:filter] %> <%= session[:period] %></strong> </div>
-      <% end %>
+    <div class="btn-blocs" id="filters">
+      <%= render "filters" %>
     </div>
 
      <div class="link-deco"> <strong>Create new thread</strong> <%= link_to new_topic_theme_path do %>
@@ -63,7 +26,9 @@
        </div>
 
   <div class="d-flex justify-content-between">
+
     <div class="btn btn-warning btn-danger-text shadow-sm" id="link-color"> << back to <%= link_to @topic.category, topics_path %> </div>
+
   </div>
 
   <%# <div class="filters">
@@ -103,56 +68,9 @@
 
 
   <div id="themes">
-  <% @themes.each do |theme| %>
 
-    <div data-type='<%=theme.title%>' class="theme-card">
-      <div><%= theme.title %></div>
-      <br>
-      <div class="d-flex justify-content-between">
-      <% if theme.user.username.present?%>
-      <div>
-        <% if theme.user.photo.attached? %>
-        <%= cl_image_tag theme.user.photo.key, width: 40, height: 40, crop: :pad, class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
-        by <%= theme.user.username %>
-      </div>
-      <% else %>
-      <div> by <%= theme.user.email %> </div>
-      <% end %>
-      <div><%= theme.date %></div>
-      </div>
-      <br>
-      <div>
-        <%= theme.themeupvotes.count %>
-        <% if theme.get_themeupvote_of_user(current_user) %>
-          <%= link_to themeupvote_path(theme.get_themeupvote_of_user(current_user)), method: :delete do %>
-            <i  id="heart-like" class="fas fa-heart"></i>
-          <% end %>
-        <% else %>
-          <%= link_to theme_themeupvotes_path(theme), method: :post do %>
-          <i id="heart-like" class="far fa-heart"></i>
-          <% end %>
-        <% end %>
-      </div>
+    <%= render "listing" %>
 
-      <div class="d-flex justify-content-between">
-        <div class="replies-theme"> <%= link_to "See comments", topic_theme_path(@topic,theme) %>  (  <%= theme.comments.count %> )  </div>
-        <div>
-          <% if theme.get_bookmark_of_user(current_user) %>
-          <%= link_to theme_bookmark_path(theme, theme.get_bookmark_of_user(current_user)), method: :delete do %>
-          <i id="heart-like" class="fas fa-bookmark"></i>
-          <% end %>
-
-          <% else %>
-            <%= link_to theme_bookmarks_path(theme), method: :post  do %>
-            <i id="heart-like"class="far fa-bookmark"></i>
-            <% end %>
-          <% end %>
-        </div>
-        </div>
-
-    </div>
-  <% end %>
   </div>
 
   <div class="d-flex justify-content-between">
