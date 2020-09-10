@@ -1,0 +1,32 @@
+<% @comments.each do |comment| %>
+      <div data-type= '<%= comment.content%>' class="theme-card-show">
+        <div>
+          <%= comment.content%>
+        </div>
+        <br>
+        <div class="d-flex justify-content-between">
+          <div>
+            <% if comment.user.photo.attached? %>
+              <%= cl_image_tag comment.user.photo.key, width: 40, height: 40, crop: :pad, class: "avatar dropdown-toggle", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>  
+            <% end %>
+            by <%= comment.user.username %>
+          </div>
+          <div>
+            <%= comment.date %>
+          </div>
+        </div>
+        <br>
+        <div>
+          <%= comment.commentupvotes.count %>
+          <% if comment.get_commentupvote_of_user(current_user) %>
+          <%= link_to commentupvote_path(comment.get_commentupvote_of_user(current_user)), method: :delete do  %>
+            <i  id="heart-like" class="fas fa-heart"></i>
+          <% end %>
+          <% else %>
+            <%= link_to comment_commentupvotes_path(comment), method: :post  do %>
+              <i id="heart-like" class="far fa-heart"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
