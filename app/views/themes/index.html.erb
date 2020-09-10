@@ -15,16 +15,30 @@
 
     <div class="btn-blocs">
       <div class="d-flex justify-content-between">
-        <div class="row" data-no-turbolink-eval='false'>
+        <div class="row">
             <%= link_to "Show all threads", topic_themes_path(reset: true),method: :get, class: "btn btn-outline-secondary"%>
             <%= link_to "Most liked", topic_themes_path(filter: 'likes'),method: :get, id: 'likes', class: "btn btn-outline-secondary"%>
             <%= link_to "Most commented", topic_themes_path(filter: 'comments'),method: :get, id: 'comments', class: "btn btn-outline-secondary"%>
-            <%= link_to "Today", topic_themes_path(period: 'today'),method: :get, class: "btn btn-outline-secondary"%>
-            <%= link_to "This week", topic_themes_path(period: 'week'),method: :get, class: "btn btn-outline-secondary"%>
-            <%= link_to "This month", topic_themes_path(period: 'month'),method: :get, class: "btn btn-outline-secondary"%>
-            <%= link_to "This year", topic_themes_path(period: 'year'),method: :get, class: "btn btn-outline-secondary"%>
-            <!--  <%#= link_to "All time", topic_themes_path(period: 'all'), class: "btn btn-outline-secondary"%> -->
+            <%#= link_to "Today", topic_themes_path(period: 'today'),method: :get, class: "btn btn-outline-secondary"%>
+            <%#= link_to "This week", topic_themes_path(period: 'week'),method: :get, class: "btn btn-outline-secondary"%>
+            <%#= link_to "This month", topic_themes_path(period: 'month'),method: :get, class: "btn btn-outline-secondary"%>
+            <%#= link_to "This year", topic_themes_path(period: 'year'),method: :get, class: "btn btn-outline-secondary"%>
+            <%#= link_to "All time", topic_themes_path(period: 'all'), class: "btn btn-outline-secondary"%>
         </div>
+
+        <div class="dropdown">
+          <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Time
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#"> <%= link_to "Today", topic_themes_path(period: 'today'),method: :get %> </a>
+            <a class="dropdown-item" href="#"> <%= link_to "This week", topic_themes_path(period: 'week'),method: :get %> </a>
+            <a class="dropdown-item" href="#"> <%= link_to "This month", topic_themes_path(period: 'month'),method: :get %> </a>
+            <a class="dropdown-item" href="#"> <%= link_to "This year", topic_themes_path(period: 'year'),method: :get %> </a>
+          </div>
+       </div>
+
       </div>
       <% if session[:filter] || session[:period] %>
        <div> Filters selected: <%= session[:filter] %> <%= session[:period] %> </div>
