@@ -3,7 +3,8 @@
   <h1> <%= @topic.category %> </h1>
 
 
-    <div class="form d-flex">
+
+    <div class="form d-flex ">
       <div class="d-flex justify-content-between input-master-search ">
         <%= form_tag topic_themes_path, method: :get do %>
       </div>
@@ -70,8 +71,6 @@
   </div> %>
 
   <%# <div class="card text-center" id="type-card" style="display: none">
-
-
       <br>
 
 
@@ -117,9 +116,7 @@
       <% end %>
       <div><%= theme.date %></div>
       </div>
-      
       <br>
-
       <div>
         <%= theme.themeupvotes.count %>
         <% if theme.get_themeupvote_of_user(current_user) %>
@@ -132,7 +129,6 @@
           <% end %>
         <% end %>
       </div>
-
 
       <div class="d-flex justify-content-between">
         <div class="replies-theme"> <%= link_to "See comments", topic_theme_path(@topic,theme) %>  (  <%= theme.comments.count %> )  </div>
@@ -156,13 +152,9 @@
 
   <div class="d-flex justify-content-between">
 
-    <div class="btn-flat-inv" id="link-color"> <%= link_to " << back to Forum", topics_path %> </div>
+    <div class="btn-flat-inv shadow-sm" id="link-color"> <%= link_to " << back to Forum", topics_path %> </div>
 
   </div>
-
-
-
-
    <div>
     <%= paginate @themes %>
    </div>
