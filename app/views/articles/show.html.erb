@@ -7,12 +7,15 @@
         <%= image_tag @article.image_url, size: "350x350"%>
         <p class="article-content"><%= @article.content %></p>
         <%= social_share_button_tag(@article.title) %>
-        <div class="btn-flat-inv"> Go back to <%= link_to @article.topic.category, topic_articles_path %> </div>
-          <div class="d-flex justify-content-left">
-            <%= link_to "Edit", edit_topic_article_path(@article.topic, @article) %>
-            <%= link_to "Delete", topic_article_path(@article.topic, @article), class: "ml-3",
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
+        <div> <%= link_to "Go back to #{@article.topic.category}", topic_articles_path, class: "btn btn-warning btn-danger-text shadow-sm" %> </div>
+          <div class="link-deco d-flex"> <%= link_to edit_topic_article_path(@article.topic, @article) do %>
+                   <i class="far fa-edit pl-2 pr-4"></i>
+                   <% end %>
+                   <%= link_to topic_article_path(@article.topic, @article),
+                   method: :delete,
+                   data: { confirm: "Are you sure?" } do %>
+                   <i class="far fa-trash-alt"></i>
+                   <% end %>
           </div>
 
       </div>
@@ -24,7 +27,7 @@
         <h4><%= @article.date %></h4>
         <p><%= @article.content %></p>
         <%= social_share_button_tag(@article.title) %>
-        <div class="btn-flat-inv inline shadow-sm "><%= link_to "Go back", topic_articles_path %> </div>
+        <div class="btn btn-warning btn-danger-text shadow-sm"><%= link_to "Go back", topic_articles_path %> </div>
       </div>
     </div>
   <% end %>
