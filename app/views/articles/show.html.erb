@@ -6,7 +6,9 @@
         <h6><%= @article.date %></h6>
         <%= image_tag @article.image_url, size: "350x350"%>
         <p class="article-content"><%= @article.content %></p>
-        <%= social_share_button_tag(@article.title) %>
+        <button type="button" class="btn btn-sm btn-fb" id="facebook-button"><i class="fab fa-facebook-f pr-1"></i><a href="https://www.facebook.com/sharer/sharer.php?u=kaabo.network/topics/#{@article.topic_id}/articles/#{@article.id}" target="_blank">
+          Share on Facebook
+        </a></button>
         <div class="btn-flat-inv"> Go back to <%= link_to @article.topic.category, topic_articles_path %> </div>
           <div class="d-flex justify-content-left">
             <%= link_to "Edit", edit_topic_article_path(@article.topic, @article) %>
@@ -19,13 +21,10 @@
     </div>
   <% else %>
     <div class="container_show">
-      <div id="content-wrap">
+      <div id="content-wrap">       
         <h1><%= @article.title %></h1>
         <h4><%= @article.date %></h4>
         <p><%= @article.content %></p>
-        <div class="social-share-button">
-        <div class="fb-share-button" data-href="http://kaabo.network/topics/#{@article.topic_id}/articles/#{@article.id}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkaabo.network%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
-        </div>
         <div class="btn-flat-inv"> Go back to <%= link_to @article.topic.category, topic_articles_path %> </div>
       </div>
     </div>
