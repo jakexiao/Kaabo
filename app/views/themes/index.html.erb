@@ -1,9 +1,11 @@
+<div class="container .col-xs-">
 <div class="container">
   <h1> <%= @topic.category %> </h1>
 
 
-    <div class="form-inline d-flex">
-      <div>
+
+    <div class="form d-flex ">
+      <div class="d-flex justify-content-between input-master-search ">
         <%= form_tag topic_themes_path, method: :get do %>
       </div>
       <div class="search-box"> <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:60%"%>
@@ -13,12 +15,20 @@
     </div>
 
 
+
+
+
+
+
+
+
     <div class="btn-blocs">
+      <div>Filter by: </div>
       <div class="d-flex justify-content-between">
         <div class="row">
             <%= link_to "Show all threads", topic_themes_path(reset: true),method: :get, class: "btn btn-outline-secondary"%>
-            <%= link_to "Most liked", topic_themes_path(filter: 'likes'),method: :get, id: 'likes', class: "btn btn-outline-secondary"%>
-            <%= link_to "Most commented", topic_themes_path(filter: 'comments'),method: :get, id: 'comments', class: "btn btn-outline-secondary"%>
+            <%= link_to "Top liked", topic_themes_path(filter: 'Likes'),method: :get, id: 'likes', class: "btn btn-outline-secondary"%>
+            <%= link_to "Top commented", topic_themes_path(filter: 'Comments'),method: :get, id: 'comments', class: "btn btn-outline-secondary"%>
             <%#= link_to "Today", topic_themes_path(period: 'today'),method: :get, class: "btn btn-outline-secondary"%>
             <%#= link_to "This week", topic_themes_path(period: 'week'),method: :get, class: "btn btn-outline-secondary"%>
             <%#= link_to "This month", topic_themes_path(period: 'month'),method: :get, class: "btn btn-outline-secondary"%>
@@ -32,28 +42,35 @@
           </a>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#"> <%= link_to "Today", topic_themes_path(period: 'today'),method: :get %> </a>
-            <a class="dropdown-item" href="#"> <%= link_to "This week", topic_themes_path(period: 'week'),method: :get %> </a>
-            <a class="dropdown-item" href="#"> <%= link_to "This month", topic_themes_path(period: 'month'),method: :get %> </a>
-            <a class="dropdown-item" href="#"> <%= link_to "This year", topic_themes_path(period: 'year'),method: :get %> </a>
+            <a class="dropdown-item" href="<%= topic_themes_url(period: 'today') %>"> Today</a>
+            <a class="dropdown-item" href="<%= topic_themes_url(period: 'This week') %>"> This week  </a>
+            <a class="dropdown-item" href="<%= topic_themes_url(period: 'This month') %>"> This month </a>
+            <a class="dropdown-item" href="<%= topic_themes_url(period: 'This year') %>"> This year </a>
           </div>
-       </div>
+        </div>
 
       </div>
+      <br>
       <% if session[:filter] || session[:period] %>
-       <div> Filters selected: <%= session[:filter] %> <%= session[:period] %> </div>
+       <div> Filters selected: <strong><%= session[:filter] %> <%= session[:period] %></strong> </div>
       <% end %>
     </div>
 
-  <div class="link-deco"> <%= link_to "Create a new thread ", new_topic_theme_path %> </div>
+     <div class="link-deco"> <strong>Create new thread</strong> <%= link_to new_topic_theme_path do %>
+      <i class="fas fa-plus-circle"></i>
+
+      <% end %>
+       </div>
+
+  <div class="d-flex justify-content-between">
+    <div class="btn-flat-inv" id="link-color"> << back to <%= link_to @topic.category, topics_path %> </div>
+  </div>
 
   <%# <div class="filters">
       <button type="button" id="type-filter" class="btn-flat">What's hot?</button>
   </div> %>
 
   <%# <div class="card text-center" id="type-card" style="display: none">
-
-
       <br>
 
 
@@ -90,20 +107,21 @@
 
     <div data-type='<%=theme.title%>' class="theme-card">
       <div><%= theme.title %></div>
+      <br>
       <div class="d-flex justify-content-between">
       <% if theme.user.username.present?%>
-      <div>by <%= theme.user.username %></div>
+      <div> 
+        <% if theme.user.photo.attached? %>
+        <%= cl_image_tag theme.user.photo.key, width: 40, height: 40, crop: :pad, class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+        by <%= theme.user.username %> 
+      </div>
       <% else %>
-      <div> by <%= theme.user.email %></div>
+      <div> by <%= theme.user.email %> </div>
       <% end %>
       <div><%= theme.date %></div>
       </div>
-
-
-
-
-
-
+      <br>
       <div>
         <%= theme.themeupvotes.count %>
         <% if theme.get_themeupvote_of_user(current_user) %>
@@ -116,7 +134,6 @@
           <% end %>
         <% end %>
       </div>
-
 
       <div class="d-flex justify-content-between">
         <div class="replies-theme"> <%= link_to "See comments", topic_theme_path(@topic,theme) %>  (  <%= theme.comments.count %> )  </div>
@@ -139,15 +156,15 @@
   </div>
 
   <div class="d-flex justify-content-between">
-    <div class="btn-flat-inv shadow-sm" id="link-color"> <%= link_to " << ", topics_path %>
+
+    <div class="btn-flat-inv shadow-sm" id="link-color"> <%= link_to " << back to Forum", topics_path %> </div>
+
   </div>
-
-
-
-
-  <div>
+   <div>
     <%= paginate @themes %>
+   </div>
   </div>
-</div>
-</div>
 
+ </div>
+</div>
+</div>

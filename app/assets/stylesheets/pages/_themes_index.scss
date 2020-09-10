@@ -1,65 +1,58 @@
 .theme-card {
-  background: #F6F4E6;
+  background: #f6f4e6;
   padding: 35px;
   margin-top: 15px;
   border-radius: 5px;
   border-style: solid;
-  border-color: #FDDB3A;
+  border-color: #fddb3a;
 }
-
 
 .link-deco a {
   text-decoration: none;
-  color: #52575D;
+  color: #52575d;
 }
 
 #link-color a {
   text-decoration: none;
-  color: #52575D;
-
+  color: #52575d;
 }
 
 .search-box {
-
-  color: #FDDB3A;
+  color: #fddb3a;
   border-radius: 5px;
 }
 
 .search-btn {
   border-style: solid;
-  border-color: #FDDB3A;
+  border-color: #fddb3a;
   border-radius: 5px;
   width: 120px;
-
 }
 
 #heart-like {
-  color:#FDDB3A;
-
+  color: #fddb3a;
 }
 
 .replies-theme a {
   text-decoration: underline;
-  color: #52575D;
-
-
+  color: #52575d;
 }
 
 .btn-blocs {
   margin-top: 30px;
   margin-bottom: 30px;
-
-
 }
 
 .btn-outline-secondary {
   border-radius: 5px;
-  margin:10px;
-   &:hover {
-    color: #52575D;
+  margin: 10px;
+  &:hover {
+    color: #52575d;
     text-decoration: none;
     background-color: white;
   }
-
 }
 
+.dropdown-menu {
+  min-width: 1rem;
+}

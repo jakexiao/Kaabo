@@ -116,11 +116,11 @@ class ThemesController < ApplicationController
   end
 
   def filter
-    if session[:filter] == "likes"
+    if session[:filter] == "Likes"
       @themes = @themes.left_joins(:themeupvotes)
       .group(:id)
       .order('COUNT(themeupvotes.id) DESC')
-    elsif session[:filter] == "comments"
+    elsif session[:filter] == "Comments"
       @themes = @themes.left_joins(:comments)
       .group(:id)
       .order('COUNT(comments.id) DESC')
@@ -128,7 +128,7 @@ class ThemesController < ApplicationController
   end
 
   def filter_comments
-    if session[:filter] == "likes"
+    if session[:filter] == "Likes"
       @comments = @comments.left_joins(:commentupvotes)
       .group(:id)
       .order('COUNT(commentupvotes.id) DESC')
