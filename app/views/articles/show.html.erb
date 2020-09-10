@@ -6,6 +6,7 @@
         <h6><%= @article.date %></h6>
         <%= image_tag @article.image_url, size: "350x350"%>
         <p class="article-content"><%= @article.content %></p>
+
         <button type="button" class="btn btn-sm btn-fb" id="facebook-button"><i class="fab fa-facebook-f pr-1"></i><a href="https://www.facebook.com/sharer/sharer.php?u=kaabo.network/topics/#{@article.topic_id}/articles/#{@article.id}" target="_blank">
           Share on Facebook
         </a></button>
@@ -15,6 +16,7 @@
             <%= link_to "Delete", topic_article_path(@article.topic, @article), class: "ml-3",
                 method: :delete,
                 data: { confirm: "Are you sure?" } %>
+
           </div>
 
       </div>

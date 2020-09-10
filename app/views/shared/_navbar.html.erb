@@ -24,22 +24,14 @@
           <button type="button" id="master-search" class="btn nav-link">Search</button>
         </li>
 
-         <!-- <div class="text-center" id="search-card" style="display: none"> 
-          <%#= form_tag searches_path, method: :get do %>
-          <%#= text_field_tag :query, params[:query], placeholder:"Search anything here" %>
-          <%#= submit_tag 'search' %>
-          <%# end %>
-         </div> -->
+        <div class="text-center" id="search-card" style="display: none">
+          <%# <div class="container"> %>
+          <%= form_tag searches_path, method: :get, class: 'd-flex' do %>
+            <%= text_field_tag :query, params[:query], placeholder:"Search anything here", class: 'search-input'  %><%= button_tag type: 'submit', id: "search-glass", class: 'btn btn-transparent' do %><i class="fas fa-search" style="align-self: center" aria-hidden="true"></i><% end %>
+          <% end %>
+          <%# </div> %>
+        
 
-
-         <div class="text" id="search-card" style="display: none">
-          <div class="d-flex justify-content input-master-search">
-            <div> <%= form_tag searches_path, method: :get do %>
-              <%= text_field_tag :query, params[:query], placeholder:"Search" %> </div>
-            <div> <%= submit_tag "go!" %>
-              <% end %>
-            </div>
-          </div>
         </div>
 
         <li class="nav-item dropdown">
