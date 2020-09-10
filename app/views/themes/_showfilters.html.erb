@@ -1,0 +1,24 @@
+<div>
+      Filter by: 
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="row">
+          <%= link_to "Show all comments", topic_theme_path(reset: true), class: "btn btn-outline-secondary" %>
+          <%= link_to "Top liked", topic_theme_path(filter: 'Likes'), class: "btn btn-outline-secondary" %>
+        </div>
+      <div class="dropdown">
+        <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Time
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="<%= topic_theme_url(period: 'today') %>"> Today</a>
+          <a class="dropdown-item" href="<%= topic_theme_url(period: 'This week') %>"> This week  </a>
+          <a class="dropdown-item" href="<%= topic_theme_url(period: 'This month') %>"> This month </a>
+          <a class="dropdown-item" href="<%= topic_theme_url(period: 'This year') %>"> This year </a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <% if session[:filter] || session[:period] %>
+      <div> Filters selected: <strong><%= session[:filter] %> <%= session[:period] %> </strong></div>
+    <% end %>
