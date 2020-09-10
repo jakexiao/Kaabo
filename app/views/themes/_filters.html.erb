@@ -1,0 +1,31 @@
+<div>Filter by: </div>
+<div class="d-flex justify-content-between">
+<div class="row">
+    <%= link_to "Show all threads", topic_themes_path(reset: true),method: :get, class: "btn btn-outline-secondary", remote:true %>
+    <%= link_to "Top liked", topic_themes_path(filter: 'Likes'),method: :get, id: 'likes', class: "btn btn-outline-secondary #{'btn-outline-warning' if session[:filter] == 'Likes'}", remote:true %>
+    <%= link_to "Top commented", topic_themes_path(filter: 'Comments'),method: :get, id: 'comments', class: "btn btn-outline-secondary #{'btn-outline-warning' if session[:filter] == 'Comments'}", remote:true %>
+    <%#= link_to "Today", topic_themes_path(period: 'today'),method: :get, class: "btn btn-outline-secondary"%>
+    <%#= link_to "This week", topic_themes_path(period: 'week'),method: :get, class: "btn btn-outline-secondary"%>
+    <%#= link_to "This month", topic_themes_path(period: 'month'),method: :get, class: "btn btn-outline-secondary"%>
+    <%#= link_to "This year", topic_themes_path(period: 'year'),method: :get, class: "btn btn-outline-secondary"%>
+    <%#= link_to "All time", topic_themes_path(period: 'all'), class: "btn btn-outline-secondary"%>
+</div>
+
+<div class="dropdown">
+    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <% if session[:period] %>
+    <%= session[:period] %>
+    <% else %>
+    Time
+    <% end %>
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <%= link_to "Today", topic_themes_path(period: 'today'), remote:true, class:"dropdown-item" %>
+        <%= link_to "This week", topic_themes_path(period: 'week'), remote:true, class:"dropdown-item" %>
+        <%= link_to "This month", topic_themes_path(period: 'month'), remote:true, class:"dropdown-item" %>
+        <%= link_to "This year", topic_themes_path(period: 'year'), remote:true, class:"dropdown-item" %>
+    </div>
+</div>
+
+</div>
