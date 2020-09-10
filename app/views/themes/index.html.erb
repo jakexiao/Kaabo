@@ -4,10 +4,10 @@
 
 
 
-    <div class="text-center" id="search-card" style="display: none">
+     <div class="text-center" id="search-card">
           <%# <div class="container"> %>
           <%= form_tag searches_path, method: :get, class: 'd-flex' do %>
-            <%= text_field_tag :query, params[:query], placeholder:"Search anything here", class: 'search-input'  %><%= button_tag type: 'submit', id: "search-glass", class: 'btn btn-transparent' do %><i class="fas fa-search" style="align-self: center" aria-hidden="true"></i><% end %>
+            <%= text_field_tag :query, params[:query], placeholder:"Search here", class: 'search-input', style: "background-color:#F6F4E6" %><%= button_tag type: 'submit', id: "search-glass", class: 'btn btn-transparent', style: "background-color:#F6F4E6" do %><i class="fas fa-search" style="align-self: center" aria-hidden="true"></i><% end %>
           <% end %>
           <%# </div> %>
 
@@ -63,7 +63,7 @@
        </div>
 
   <div class="d-flex justify-content-between">
-    <div class="btn btn-warning btn-danger-text shadow-sm" id="link-color"> << back to <%= link_to @topic.category, topics_path %> </div>
+  <div class="btn btn-warning btn-danger-text shadow-sm" id="link-color"><%= link_to "<< back to #{@topic.category}", topics_path %> </div>
   </div>
 
   <%# <div class="filters">
@@ -157,7 +157,7 @@
 
   <div class="d-flex justify-content-between">
 
-    <div class="btn btn-warning btn-danger-text shadow-sm" id="link-color"> <%= link_to " << back to Forum", topics_path %> </div>
+    <div class="btn btn-warning btn-danger-text shadow-sm" id="link-color"> <%= link_to "<< back to Forum", topics_path %> </div>
 
   </div>
    <div>
