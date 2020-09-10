@@ -34,10 +34,11 @@
 
 
  <div class="btn-blocs">
+ <div>Filter by: </div>
     <div class="d-flex justify-content-between">
       <div class="row">
         <%= link_to "Show all comments", topic_theme_path(reset: true), class: "btn btn-outline-secondary" %>
-        <%= link_to "Most liked", topic_theme_path(filter: 'likes'), class: "btn btn-outline-secondary" %>
+        <%= link_to "Top liked", topic_theme_path(filter: 'Likes'), class: "btn btn-outline-secondary" %>
         <%#= link_to "Today", topic_theme_path(period: 'today'), class: "btn btn-outline-secondary" %>
         <%#= link_to "This week", topic_theme_path(period: 'week'), class: "btn btn-outline-secondary" %>
         <%#= link_to "This month", topic_theme_path(period: 'month'), class: "btn btn-outline-secondary"%>
@@ -51,22 +52,23 @@
           </a>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#"> <%= link_to "Today", topic_theme_path(period: 'today'),method: :get %> </a>
-            <a class="dropdown-item" href="#"> <%= link_to "This week", topic_theme_path(period: 'week'),method: :get %> </a>
-            <a class="dropdown-item" href="#"> <%= link_to "This month", topic_theme_path(period: 'month'),method: :get %> </a>
-            <a class="dropdown-item" href="#"> <%= link_to "This year", topic_theme_path(period: 'year'),method: :get %> </a>
+            <a class="dropdown-item" href="<%= topic_theme_url(period: 'today') %>"> Today</a>
+            <a class="dropdown-item" href="<%= topic_theme_url(period: 'This week') %>"> This week  </a>
+            <a class="dropdown-item" href="<%= topic_theme_url(period: 'This month') %>"> This month </a>
+            <a class="dropdown-item" href="<%= topic_theme_url(period: 'This year') %>"> This year </a>
           </div>
         </div>
 
     </div>
+    <br>
     <% if session[:filter] || session[:period] %>
-      <div> Filters selected: <%= session[:filter] %> <%= session[:period] %> </div>
+      <div> Filters selected: <strong><%= session[:filter] %> <%= session[:period] %> </strong></div>
     <% end %>
  </div>
 
 
  <div class="d-flex justify-content-between">
-<div class="link-deco"> Leave a comment <%= link_to new_theme_comment_path(@theme) do %>
+<div class="link-deco"> <strong>Leave a comment</strong> <%= link_to new_theme_comment_path(@theme) do %>
 <i class="fas fa-plus-circle"></i>
 <% end %>
 </div>
