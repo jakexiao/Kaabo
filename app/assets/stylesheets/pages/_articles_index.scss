@@ -10,21 +10,25 @@
 }
 
 .index-page-container {
-  margin-top: 40px;
+  margin-top: 15px;
   margin-bottom: 30px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .cards-article {
-   background-color: #F6F4E6;
+  background-color: #F6F4E6;
+  margin-right: -34px;
+  margin-left: -36px;
 }
 
 .articles {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 50px;
+  grid-gap: 39px;
   padding: 0 20px;
   a {
     text-decoration: none;
@@ -39,8 +43,8 @@
 }
 
 #article-title {
-  margin-left: 50px;
-  margin-bottom: 1.5rem;
+  margin-left: 24px;
+  margin-bottom: 0.5rem;
 }
 
 .article-link {
