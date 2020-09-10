@@ -63,7 +63,7 @@
        </div>
 
   <div class="d-flex justify-content-between">
-    <div class="btn-flat-inv" id="link-color"> << back to <%= link_to @topic.category, topics_path %> </div>
+    <div class="btn btn-warning btn-danger-text shadow-sm" id="link-color"> << back to <%= link_to @topic.category, topics_path %> </div>
   </div>
 
   <%# <div class="filters">
@@ -110,11 +110,11 @@
       <br>
       <div class="d-flex justify-content-between">
       <% if theme.user.username.present?%>
-      <div> 
+      <div>
         <% if theme.user.photo.attached? %>
         <%= cl_image_tag theme.user.photo.key, width: 40, height: 40, crop: :pad, class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
-        by <%= theme.user.username %> 
+        by <%= theme.user.username %>
       </div>
       <% else %>
       <div> by <%= theme.user.email %> </div>
@@ -157,7 +157,7 @@
 
   <div class="d-flex justify-content-between">
 
-    <div class="btn-flat-inv shadow-sm" id="link-color"> <%= link_to " << back to Forum", topics_path %> </div>
+    <div class="btn btn-warning btn-danger-text shadow-sm" id="link-color"> <%= link_to " << back to Forum", topics_path %> </div>
 
   </div>
    <div>
