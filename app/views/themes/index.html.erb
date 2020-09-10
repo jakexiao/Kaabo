@@ -1,19 +1,28 @@
+<div class="container .col-xs-">
 <div class="container">
   <h1> <%= @topic.category %> </h1>
 
 
-    <div class="form-inline d-flex">
-      <div>
-        <%= form_tag topic_themes_path, method: :get do %> 
+    <div class="form d-flex">
+      <div class="d-flex justify-content-between input-master-search ">
+        <%= form_tag topic_themes_path, method: :get do %>
       </div>
       <div class="search-box"> <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:60%"%>
-        <%= submit_tag 'search', class: 'search-btn'%> 
+        <%= submit_tag 'search', class: 'search-btn'%>
       </div>
         <% end %>
     </div>
 
 
+
+
+
+
+
+
+
     <div class="btn-blocs">
+      <div>filter by: </div>
       <div class="d-flex justify-content-between">
         <div class="row">
             <%= link_to "Show all threads", topic_themes_path(reset: true),method: :get, class: "btn btn-outline-secondary"%>
@@ -40,12 +49,17 @@
        </div>
 
       </div>
+
       <% if session[:filter] || session[:period] %>
        <div> Filters selected: <%= session[:filter] %> <%= session[:period] %> </div>
       <% end %>
     </div>
 
-  <div class="link-deco"> <%= link_to "Create a new thread ", new_topic_theme_path %> </div>
+     <div class="link-deco"> Create new thread <%= link_to new_topic_theme_path do %>
+      <i class="fas fa-plus-circle"></i>
+
+      <% end %>
+       </div>
 
   <%# <div class="filters">
       <button type="button" id="type-filter" class="btn-flat">What's hot?</button>
@@ -139,15 +153,17 @@
   </div>
 
   <div class="d-flex justify-content-between">
-    <div class="btn-flat-inv" id="link-color"> <%= link_to " << ", topics_path %> 
+    <div class="btn-flat-inv" id="link-color"> <%= link_to " << ", topics_path %>
   </div>
 
 
 
-  
-  <div>
+
+   <div>
     <%= paginate @themes %>
+   </div>
   </div>
-</div>
-</div>
 
+ </div>
+</div>
+</div>

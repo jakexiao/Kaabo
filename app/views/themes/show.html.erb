@@ -1,13 +1,16 @@
+<div class="container .col-xs-">
 <div class="container">
 
 
+<div class="form d-flex">
+<div class="d-flex justify-content-between input-master-search ">
+      <div><%= form_tag topic_theme_path, method: :get do %> </div>
+        <div class="search-box"> <%= text_field_tag :query, params[:query], placeholder: "keyword", class: 'search-input pr-0 mr-0', style: "width:60%"%>
+           <%= submit_tag 'search', class: 'search-btn'%> </div>
+            <% end %>
+   </div>
+</div>
 
-<div class="form-inline d-flex" style="width:100%">
-    <div><%= form_tag topic_theme_path, method: :get do %> </div>
-      <div class="search-box"> <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:60%"%>
-         <%= submit_tag 'search', class: 'search-btn'%> </div>
-          <% end %>
- </div>
 
 
 <div class="new-card-show">
@@ -38,7 +41,7 @@
         <%#= link_to "This week", topic_theme_path(period: 'week'), class: "btn btn-outline-secondary" %>
         <%#= link_to "This month", topic_theme_path(period: 'month'), class: "btn btn-outline-secondary"%>
         <%#= link_to "This year", topic_theme_path(period: 'year'), class: "btn btn-outline-secondary" %>
-        <%#= link_to "All time", topic_theme_path(period: 'all'), class: "btn btn-outline-secondary" %> 
+        <%#= link_to "All time", topic_theme_path(period: 'all'), class: "btn btn-outline-secondary" %>
      </div>
 
       <div class="dropdown">
@@ -62,7 +65,10 @@
 
 
  <div class="d-flex justify-content-between">
-<div class="link-deco"> <%= link_to "leave a comment", new_theme_comment_path(@theme) %> </div>
+<div class="link-deco"> Leave a comment <%= link_to new_theme_comment_path(@theme) do %>
+<i class="fas fa-plus-circle"></i>
+<% end %>
+</div>
 <div class="link-deco"> <%#= link_to "show all", topic_theme_path(reset: true) %> </div>
 </div>
 <br>
