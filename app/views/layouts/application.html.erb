@@ -25,7 +25,6 @@
     <%= favicon_link_tag 'favicon-32x32.png', rel: 'favicon', type: 'image/png'%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -38,7 +37,10 @@
     <%= render 'shared/navbar' %>
         <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+   <div class="main-container">
+     <%= yield %>
+  </div>
 
    <div> <%= render 'shared/footer' %></div>
   </body>
