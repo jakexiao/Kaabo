@@ -36,8 +36,26 @@
     <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
     <script>
         Weglot.initialize({
-            api_key: 'wg_1374fd170b7600f8d35fc15049aeeeb69'
-        });
+            api_key: 'wg_1374fd170b7600f8d35fc15049aeeeb69'  // Multiple switchers
+            ,switchers: [
+              {
+                // Same as button_style at root
+                button_style: {
+                  full_name: true,
+                  with_name: true,
+                  is_dropdown: false,
+                  with_flags: true,
+                  flag_type: "circle",
+                  invert_flags: false
+                },
+                // Move switcher somewhere in the page
+                location: {
+                  target: ".translation-container",
+                  sibling: null
+                }
+              }
+            ]
+                  });
     </script>
   </head>
 
