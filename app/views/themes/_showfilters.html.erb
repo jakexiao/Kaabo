@@ -4,21 +4,22 @@
       <div class="d-flex justify-content-between">
         <div class="row">
           <%= link_to "Show all comments", topic_theme_path(reset: true), class: "btn btn-outline-secondary" %>
-          <%= link_to "Top liked", topic_theme_path(filter: 'Likes'), class: "btn btn-outline-secondary" %>
+          <%= link_to "Top liked", topic_theme_path(filter: 'Likes'), class: "btn btn-outline-secondary #{'btn-outline-warning' if session[:filter] == 'Likes'}", remote:true %>
         </div>
       <div class="dropdown">
         <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Time
+          <% if session[:period] %>
+            <%= session[:period] %>
+          <% else %>
+            Time
+          <% end %>
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="<%= topic_theme_url(period: 'today') %>"> Today</a>
-          <a class="dropdown-item" href="<%= topic_theme_url(period: 'This week') %>"> This week  </a>
-          <a class="dropdown-item" href="<%= topic_theme_url(period: 'This month') %>"> This month </a>
-          <a class="dropdown-item" href="<%= topic_theme_url(period: 'This year') %>"> This year </a>
+          <%= link_to "Today", topic_theme_path(period: 'today'), remote:true, class:"dropdown-item" %>
+          <%= link_to "This week", topic_theme_path(period: 'week'), remote:true, class:"dropdown-item" %>
+          <%= link_to "This month", topic_theme_path(period: 'month'), remote:true, class:"dropdown-item" %>
+          <%= link_to "This year", topic_theme_path(period: 'year'), remote:true, class:"dropdown-item" %>
         </div>
       </div>
     </div>
-    <br>
-    <% if session[:filter] || session[:period] %>
-      <div> Filters selected: <strong><%= session[:filter] %> <%= session[:period] %> </strong></div>
-    <% end %>
+    

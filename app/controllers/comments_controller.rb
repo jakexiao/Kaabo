@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment.theme = @theme
     @comment.user = current_user
     if @comment.save
-        redirect_to topic_theme_path(@comment.theme.topic, @comment.theme), notice: "comment created"
+        redirect_to topic_theme_path(@comment.theme.topic, @comment.theme)
     else 
       render :new
     end

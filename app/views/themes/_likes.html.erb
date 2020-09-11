@@ -1,0 +1,10 @@
+<%= theme.themeupvotes.count %>
+<% if theme.get_themeupvote_of_user(current_user) %>
+    <%= link_to themeupvote_path(theme.get_themeupvote_of_user(current_user)), method: :delete, remote:true do %>
+    <i  id="heart-like" class="fas fa-heart"></i>
+    <% end %>
+<% else %>
+    <%= link_to theme_themeupvotes_path(theme), method: :post, remote:true do %>
+    <i id="heart-like" class="far fa-heart"></i>
+    <% end %>
+<% end %>

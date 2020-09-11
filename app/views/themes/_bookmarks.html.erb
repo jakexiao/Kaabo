@@ -1,0 +1,10 @@
+<% if theme.get_bookmark_of_user(current_user) %>
+<%= link_to theme_bookmark_path(theme, theme.get_bookmark_of_user(current_user)), method: :delete, remote:true do %>
+<i id="heart-like" class="fas fa-bookmark"></i>
+<% end %>
+
+<% else %>
+<%= link_to theme_bookmarks_path(theme), method: :post, remote:true  do %>
+<i id="heart-like"class="far fa-bookmark"></i>
+<% end %>
+<% end %>

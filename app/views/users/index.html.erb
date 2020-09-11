@@ -26,7 +26,7 @@
     <div>User: <%= user.username %></div>
     <div>E-mail: <%= user.email %></div>
     <div>Admin: <%= user.admin %></div>
-    <%= simple_form_for(user) do |f| %> <%= f.input :admin %> <%= f.submit %> <%
+    <%= simple_form_for(user) do |f| %> <%= f.input :admin %> <%= f.submit class:"btn btn-warning"%> <%
     end %>
   </div>
   <% end %>
