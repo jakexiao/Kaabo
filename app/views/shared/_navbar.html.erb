@@ -20,18 +20,14 @@
         <li class="nav-item">
           <%= link_to "Forum", "/topics", class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <button type="button" id="master-search" class="btn nav-link">Search</button>
-        </li>
+        <%# <li class="nav-item">
+          <button type="button" id="master-search" class="btn nav-link">Search</button> 
+        </li> %>
 
-        <div class="text-center" id="search-card" style="display: none">
-          <%# <div class="container"> %>
+        <div class="text-center" id="search-card" style="display:none">
           <%= form_tag searches_path, method: :get, class: 'd-flex' do %>
             <%= text_field_tag :query, params[:query], placeholder:"Search here", class: 'search-input' %><%= button_tag type: 'submit', id: "search-glass", class: 'btn btn-transparent' do %><i class="fas fa-search" style="align-self: center" aria-hidden="true"></i><% end %>
           <% end %>
-          <%# </div> %>
-
-
         </div>
 
         <li class="nav-item dropdown">
