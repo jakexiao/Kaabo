@@ -16,17 +16,8 @@
           </div>
         </div>
         <br>
-        <div>
-          <%= comment.commentupvotes.count %>
-          <% if comment.get_commentupvote_of_user(current_user) %>
-          <%= link_to commentupvote_path(comment.get_commentupvote_of_user(current_user)), method: :delete do  %>
-            <i  id="heart-like" class="fas fa-heart"></i>
-          <% end %>
-          <% else %>
-            <%= link_to comment_commentupvotes_path(comment), method: :post  do %>
-              <i id="heart-like" class="far fa-heart"></i>
-            <% end %>
-          <% end %>
+        <div id="comment-likes-<%= comment.id %>">
+           <%= render "showlikes", comment: comment %> 
         </div>
       </div>
   <% end %>

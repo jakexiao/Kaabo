@@ -33,12 +33,17 @@
       <div class="pr-1"><%= bookmark.theme.title %></div>
       <div><small> <%= bookmark.theme.date %></small></div>
      </div>
-       <div class="link-deco" id="bookmark-fix">  <% if bookmark.theme.get_bookmark_of_user(current_user) %>
+     <div class="d-flex justify-content-between">
+       <div class="link-deco" > <strong><%= link_to "More", topic_themes_path(bookmark.theme.topic, bookmark.theme) %></strong></div>
+       <div class="link-deco" id="bookmark-fix"> 
+         <% if bookmark.theme.get_bookmark_of_user(current_user) %>
          <%= link_to theme_bookmark_path(bookmark.theme, bookmark.theme.get_bookmark_of_user(current_user)), method: :delete, :query => "dashboard" do %>
          <i  class="fas fa-bookmark"></i>
          <% end %>
          <% end %>
        </div>
+      </div>
+       
        </div>
     <% end %>
    </div>

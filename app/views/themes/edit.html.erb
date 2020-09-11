@@ -3,7 +3,7 @@
       <%= simple_form_for([@topic, @theme]) do |f| %>
       <%= f.input :title %>
       <%= f.input :date, :as => :hidden, :input_html => { :value => Time.now } %>
-      <%= f.submit %>
+      <%= f.submit class:"btn btn-warning"%>
     <% end %>
   </div>
 </div>

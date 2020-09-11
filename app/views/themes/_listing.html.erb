@@ -16,32 +16,15 @@
       <div><%= theme.date %></div>
       </div>
       <br>
-      <div>
-        <%= theme.themeupvotes.count %>
-        <% if theme.get_themeupvote_of_user(current_user) %>
-          <%= link_to themeupvote_path(theme.get_themeupvote_of_user(current_user)), method: :delete do %>
-            <i  id="heart-like" class="fas fa-heart"></i>
-          <% end %>
-        <% else %>
-          <%= link_to theme_themeupvotes_path(theme), method: :post do %>
-          <i id="heart-like" class="far fa-heart"></i>
-          <% end %>
-        <% end %>
+
+      <div id="theme-likes-<%= theme.id%>">
+        <%= render "likes", theme: theme %>
       </div>
 
       <div class="d-flex justify-content-between">
         <div class="replies-theme"> <%= link_to "See comments", topic_theme_path(@topic,theme) %>  (  <%= theme.comments.count %> )  </div>
-        <div>
-          <% if theme.get_bookmark_of_user(current_user) %>
-          <%= link_to theme_bookmark_path(theme, theme.get_bookmark_of_user(current_user)), method: :delete do %>
-          <i id="heart-like" class="fas fa-bookmark"></i>
-          <% end %>
-
-          <% else %>
-            <%= link_to theme_bookmarks_path(theme), method: :post  do %>
-            <i id="heart-like"class="far fa-bookmark"></i>
-            <% end %>
-          <% end %>
+        <div id="theme-bookmarks-<%= theme.id%>">
+          <%= render "bookmarks", theme: theme %>
         </div>
         </div>
 
