@@ -14,7 +14,7 @@ class ThemesController < ApplicationController
     @theme.topic = @topic
     @theme.user_id = current_user.id
     if @theme.save
-      redirect_to topic_themes_path(@topic)
+      redirect_to topic_themes_path(@topic), notice: "thread created"
     else
       render :new
     end
