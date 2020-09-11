@@ -3,9 +3,9 @@
     <div class="form d-flex">
       <div class="d-flex justify-content-between input-master-search ">
 
-        <div class="text-center" id="search-card">
+        <div class="text-center">
           <%# <div class="container"> %>
-          <%= form_tag searches_path, method: :get, class: 'd-flex' do %>
+          <%= form_tag topic_theme_path, method: :get, class: 'd-flex' do %>
             <%= text_field_tag :query, params[:query], placeholder:"Search here", class: 'search-input', style: "background-color:#F6F4E6" %><%= button_tag type: 'submit', id: "search-glass", class: 'btn btn-transparent', style: "background-color:#F6F4E6" do %><i class="fas fa-search" style="align-self: center" aria-hidden="true"></i><% end %>
           <% end %>
           <%# </div> %>
@@ -17,6 +17,7 @@
     </div>
     <div class="new-card-show">
       <h4 class="theme-cat"><%= @theme.title %></h4>
+      <br>
       <div data-type= '<%= @theme.content%>'>
         <%= @theme.content%>
       </div>

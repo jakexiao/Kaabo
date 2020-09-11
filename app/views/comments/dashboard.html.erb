@@ -57,7 +57,7 @@
            <div> <small> <%= theme.date %> </small> </div>
            </div>
            <div class="d-flex justify-content-between">
-            <div class="link-deco" > <%= link_to "Go to threads", topic_themes_path(theme.topic, theme) %></div>
+            <div class="link-deco" > <strong><%= link_to "More", topic_themes_path(theme.topic, theme) %></strong></div>
              <div class="link-deco"> <%= link_to edit_topic_theme_path(theme.topic, theme)  do %>
                    <i class="far fa-edit"></i>
                    <% end %>
@@ -88,7 +88,7 @@
       </div>
         <div class="d-flex justify-content-between">
            <div class="link-deco">
-          <%= link_to "Go to comments", topic_theme_path(comment.theme.topic, comment.theme) %>
+          <strong><%= link_to "More", topic_theme_path(comment.theme.topic, comment.theme) %></strong>
         </div>
           <div class="link-deco"> <%= link_to edit_theme_comment_path(comment.theme, comment) do %>
               <i class="far fa-edit"></i>

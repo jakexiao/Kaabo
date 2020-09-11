@@ -11,7 +11,7 @@
           Share on Facebook
         </a></button>
         <br>
-        <div class="btn btn-warning btn-danger-text shadow-sm"> <%= link_to "Go back to #{@article.topic.category}", topic_articles_path %> </div>
+        <div class="btn btn-warning btn-danger-text shadow-sm"> <%= link_to "Go back", topic_articles_path %> </div>
 
           <div class="link-deco"> <%= link_to edit_topic_article_path(@article.topic, @article)  do %>
                    <i class="far fa-edit pl-2 pr-4"></i>
@@ -31,7 +31,7 @@
         <h1><%= @article.title %></h1>
         <h4><%= @article.date %></h4>
         <p><%= @article.content %></p>
-        <div class="btn-flat-inv"> Go back to <%= link_to @article.topic.category, topic_articles_path %> </div>
+        <div class="btn-flat-inv">  <%= link_to "Go back", topic_articles_path %> </div>
       </div>
     </div>
   <% end %>

@@ -3,28 +3,28 @@
     <h2 id="article-title"><%= @topic.category %></h2>
 
 
-     <div class="text-center" id="search-card">
-          <%# <div class="container"> %>
+      <div class="text-center">
           <%= form_tag searches_path, method: :get, class: 'd-flex' do %>
             <%= text_field_tag :query, params[:query], placeholder:"Search here", class: 'search-input', style: "background-color:#F6F4E6" %><%= button_tag type: 'submit', id: "search-glass", class: 'btn btn-transparent', style: "background-color:#F6F4E6" do %><i class="fas fa-search" style="align-self: center" aria-hidden="true"></i><% end %>
           <% end %>
-          <%# </div> %>
-
-
-        </div>
+      </div>
 
    <!--     <div class="form-inline d-flex ml-4" style="width:100%">
-            <%= form_tag topic_articles_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search'%>
-            <% end %>
+            <%#= form_tag topic_articles_path, method: :get do %>
+            <%#= text_field_tag :query, params[:query], placeholder:"keyword", class: 'search-input pr-0 mr-0', style: "width:50%"%><%= submit_tag 'search'%>
+            <%# end %>
 
        </div> -->
 
      </br>
 
       <% if !current_user.nil? %>
-      <%= link_to "Create a new article", new_topic_article_path, class: "article-link"%>
+      <div class="link-deco"> <strong>Create a new article</strong> <%= link_to new_topic_article_path do %>
+        <i class="fas fa-plus-circle"></i>
+        <% end %>
+      </div>
       <% end %>
+      
     <div class="index-page-container col-10">
         <div class="articles">
           <% @articles.each do |article| %>
